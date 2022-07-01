@@ -10,9 +10,9 @@ import reportWebVitals from './reportWebVitals';
 import './index.scss';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
-	<StrictMode>
-		<App />
-	</StrictMode>
+    <StrictMode>
+        <App />
+    </StrictMode>
 );
 
 serviceWorkerRegistration.unregister();
