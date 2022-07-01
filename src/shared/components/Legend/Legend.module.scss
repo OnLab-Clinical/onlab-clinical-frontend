@@ -1,0 +1,23 @@
+@import 'styles';
+
+.Legend {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    &.Start {
+        justify-content: start;
+    }
+
+    &.Center {
+        justify-content: center;
+    }
+
+    &.End {
+        justify-content: end;
+    }
+
+    &.Dots > span {
+        @include dots;
+    }
+}
