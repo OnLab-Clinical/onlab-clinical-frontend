@@ -1,11 +1,12 @@
 /* react */
-import { FC, memo } from 'react';
-/* props */
 import {
-    FieldLayoutProps,
-    FieldsProps,
-    PasswordFieldProps,
-} from './Field.props';
+    DetailedHTMLProps,
+    forwardRef,
+    InputHTMLAttributes,
+    memo,
+} from 'react';
+/* props */
+import { FieldLayoutProps, PasswordFieldProps } from './Field.props';
 /* layouts */
 import FieldLayout from './FieldLayout';
 /* utils */
@@ -13,50 +14,60 @@ import { classNames } from 'shared/utils';
 /* styles */
 import styles from './Field.module.scss';
 
-const PasswordField: FC<PasswordFieldProps> = ({
-    className,
-    beforeContent,
-    afterContent,
-    classNameContent,
-    classNameIcon,
-    isPasswordVisible,
-    onShowPassword,
-    onHidePassword,
-    showIcon,
-    hideIcon,
-    ...rest
-}) => {
-    const layoutProps: FieldLayoutProps = {
-        className,
-        beforeContent,
-        afterContent,
-    };
+const PasswordField = forwardRef<HTMLInputElement | null, PasswordFieldProps>(
+    (
+        {
+            className,
+            beforeContent,
+            afterContent,
+            classNameContent,
+            classNameIcon,
+            isPasswordVisible,
+            onShowPassword,
+            onHidePassword,
+            showIcon,
+            hideIcon,
+            strategy,
+            ...rest
+        },
+        ref
+    ) => {
+        const layoutProps: FieldLayoutProps = {
+            className,
+            beforeContent,
+            afterContent,
+        };
 
-    const inputProps: FieldsProps = {
-        className: classNames(styles.TextField, classNameContent),
-        type: isPasswordVisible ? 'text' : 'password',
-        ...rest,
-    };
+        const inputProps: DetailedHTMLProps<
+            InputHTMLAttributes<HTMLInputElement>,
+            HTMLInputElement
+        > = {
+            className: classNames(styles.TextField, classNameContent),
+            type: isPasswordVisible ? 'text' : strategy,
+            ref,
+            ...rest,
+        };
 
-    const iconProps = {
-        className: classNames(styles.PasswordIcon, classNameIcon),
-        onClick: isPasswordVisible ? onHidePassword : onShowPassword,
-        children: isPasswordVisible
-            ? typeof hideIcon === 'function'
-                ? hideIcon()
-                : hideIcon ?? 'Hide'
-            : typeof showIcon === 'function'
-            ? showIcon()
-            : showIcon ?? 'Show',
-    };
+        const iconProps = {
+            className: classNames(styles.PasswordIcon, classNameIcon),
+            onClick: isPasswordVisible ? onHidePassword : onShowPassword,
+            children: isPasswordVisible
+                ? typeof hideIcon === 'function'
+                    ? hideIcon()
+                    : hideIcon ?? 'Hide'
+                : typeof showIcon === 'function'
+                ? showIcon()
+                : showIcon ?? 'Show',
+        };
 
-    return (
-        <FieldLayout {...layoutProps}>
-            <input {...inputProps} />
+        return (
+            <FieldLayout {...layoutProps}>
+                <input {...inputProps} />
 
-            <i {...iconProps} />
-        </FieldLayout>
-    );
-};
+                <i {...iconProps} />
+            </FieldLayout>
+        );
+    }
+);
 
 export default memo(PasswordField);

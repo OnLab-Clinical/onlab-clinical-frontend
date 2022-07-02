@@ -22,8 +22,9 @@ export type FieldStrategy =
     | 'password'
     | 'email'
     | 'number'
+    | 'decimal'
     | 'radio'
-    | 'check'
+    | 'checkbox'
     | 'file'
     | 'date'
     | 'select'
@@ -37,10 +38,17 @@ export interface FieldProps
                 InputHTMLAttributes<HTMLInputElement>,
                 HTMLInputElement
             >,
-            'ref' | 'children'
+            | 'ref'
+            | 'children'
+            | 'type'
+            | 'onDragEnter'
+            | 'onDragOver'
+            | 'onDragLeave'
+            | 'onDrop'
         >,
         ContentLayoutProps {
     classNameContent?: string;
+    strategy?: FieldStrategy;
 }
 
 /* password field */

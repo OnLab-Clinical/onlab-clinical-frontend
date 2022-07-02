@@ -7,14 +7,14 @@ import {
 } from './ComponentStrategy.props';
 
 const ComponentStrategy = <PROPS extends object, STRATEGY>({
-    componentStrategy,
+    components,
     Default,
 }: ComponentStrategyProps<PROPS, STRATEGY>) => {
     /* component strategy */
     const Strategy = forwardRef<any, StrategyProps<PROPS, STRATEGY>>(
         (props, ref) => {
             const Component = props.strategy
-                ? componentStrategy[props.strategy as unknown as string]
+                ? components[props.strategy as unknown as string]
                 : Default;
 
             return <Component ref={ref} {...props} />;

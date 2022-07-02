@@ -3,10 +3,11 @@ import {
     DetailedHTMLProps,
     forwardRef,
     InputHTMLAttributes,
+    LabelHTMLAttributes,
     memo,
 } from 'react';
 /* props */
-import { FieldLayoutProps, FieldProps } from './Field.props';
+import { FieldLayoutProps, FileFieldProps } from './Field.props';
 /* layouts */
 import FieldLayout from './FieldLayout';
 /* utils */
@@ -14,24 +15,38 @@ import { classNames } from 'shared/utils';
 /* styles */
 import styles from './Field.module.scss';
 
-const TextField = forwardRef<HTMLInputElement | null, FieldProps>(
+const FileField = forwardRef<HTMLInputElement | null, FileFieldProps>(
     (
         {
             className,
             classNameContent,
             beforeContent,
             afterContent,
-            strategy,
+            children,
+            onDragEnter,
+            onDragOver,
+            onDragLeave,
+            onDrop,
             ...rest
         },
         ref
     ) => {
-        /* props */
-
         const layoutProps: FieldLayoutProps = {
             className,
             beforeContent,
             afterContent,
+        };
+
+        const labelProps: DetailedHTMLProps<
+            LabelHTMLAttributes<HTMLLabelElement>,
+            HTMLLabelElement
+        > = {
+            className: styles.FileLabel,
+            htmlFor: rest.id || rest.name,
+            onDragEnter,
+            onDragOver,
+            onDragLeave,
+            onDrop,
         };
 
         const inputProps: DetailedHTMLProps<
@@ -39,17 +54,22 @@ const TextField = forwardRef<HTMLInputElement | null, FieldProps>(
             HTMLInputElement
         > = {
             className: classNames(styles.TextField, classNameContent),
-            type: strategy,
+            type: 'file',
+            id: rest.name,
             ref,
             ...rest,
         };
 
         return (
             <FieldLayout {...layoutProps}>
+                <label {...labelProps}>
+                    {typeof children === 'function' ? children() : children}
+                </label>
+
                 <input {...inputProps} />
             </FieldLayout>
         );
     }
 );
 
-export default memo(TextField);
+export default memo(FileField);

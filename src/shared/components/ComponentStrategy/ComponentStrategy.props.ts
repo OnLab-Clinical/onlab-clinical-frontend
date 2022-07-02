@@ -2,7 +2,7 @@
 import { FC } from 'react';
 
 export interface ComponentStrategyProps<PROPS = null, STRATEGY = string> {
-    componentStrategy: Record<string, FC<PROPS>>;
+    components: Record<string, FC<PROPS>>;
 
     Default: FC<(PROPS & { strategy?: STRATEGY }) | any>;
 }
