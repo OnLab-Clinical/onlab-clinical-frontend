@@ -1,0 +1,78 @@
+/* palettes */
+$palette-keys: (landing, apps);
+
+/* themes */
+$theme-keys: (light, dark);
+
+/* break points */
+$break-point-keys: (
+    6xs,
+    5xs,
+    4xs,
+    3xs,
+    2xs,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    2xl,
+    3xl,
+    4xl,
+    5xl,
+    6xl
+);
+
+/* sizes */
+$size-keys: (none, xs, sm, md, lg, xl, 2xl);
+
+/* size types */
+$size-type-keys: (
+    /* html font size */ text,
+    /* border width */ border,
+    /* border rounded */ rounded,
+    /* text separation */ split,
+    /* font size */ font,
+    /* element size */ element,
+    /* element separation */ space,
+    /* component size */ component,
+    /* view segment size */ view
+);
+
+/* series */
+$serie-keys: (
+    /* background */ bg,
+    /* font */ font,
+    /* gray scale */ base,
+    primary,
+    secondary,
+    tertiary,
+    accent,
+    info,
+    success,
+    warning,
+    danger
+);
+
+/* intensities */
+$intensity-keys: (weakest, weak, main, strong, strongest);
+
+/* apply opacity */
+$opacity-keys: (
+    bg,
+    font,
+    border-left,
+    border-right,
+    border-top,
+    border-bottom,
+    shadow
+);
+
+/* alignments */
+$alignment-keys: (start, center, end);
+
+/* orientations */
+$orientation-keys: (horizontal, vertical);
+
+/* positions */
+$position-keys: (top, bottom, left, right);
