@@ -7,28 +7,35 @@
 /* body */
 body {
     @include flex-col;
+    @include font-roboto;
     @include inset;
+    overflow: hidden;
+}
+
+#root,
+#modal,
+#loader,
+#notification {
+    @include flex-col;
     overflow: hidden;
 }
 
 /* root */
 #root {
-    @include flex-col;
     flex-grow: 1;
-    overflow: hidden;
 }
 
 /* modal */
 #modal {
-    z-index: 101;
+    z-index: 110;
 }
 
 /* loader */
 #loader {
-    z-index: 102;
+    z-index: 120;
 }
 
 /* notification */
 #notification {
-    z-index: 103;
+    z-index: 130;
 }
