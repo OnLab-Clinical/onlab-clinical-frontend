@@ -1,7 +1,7 @@
-@mixin font-roboto {
-    font-family: 'Roboto', sans-serif;
-}
+@mixin font-family($font-family-key: main) {
+    @if not map-has-value($font-family-keys, $font-family-key) {
+        @error "No font family #{$font-family-key}";
+    }
 
-@mixin font-roboto-mono {
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font-family-#{$font-family-key});
 }

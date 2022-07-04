@@ -1,0 +1,11 @@
+@mixin font-size($size-key, $size-type-key: font) {
+    @if not map-has-value($size-keys, $size-key) {
+        @error "No size #{$size-key}";
+    }
+
+    @if not map-has-value($size-type-keys, $size-type-key) {
+        @error "No size type #{$size-type-key}";
+    }
+
+    font-size: var(--sizes-#{$size-type-key}-#{$size-key});
+}

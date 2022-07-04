@@ -1,0 +1,47 @@
+@mixin screen-width($layout-key, $break-point-key) {
+    @if not map-has-key($layouts, $layout-key) {
+        @error "No layout #{$layout-key}";
+    }
+
+    @if not map-has-value($break-point-keys, $break-point-key) {
+        @error "No break point #{$break-point-key}";
+    }
+
+    @media only screen and (min-width: #{map-get($layouts, $layout-key, break-points, $break-point-key)}px) {
+        @content;
+    }
+}
+
+@mixin screen-height($layout-key, $break-point-key) {
+    @if not map-has-key($layouts, $layout-key) {
+        @error "No layout #{$layout-key}";
+    }
+
+    @if not map-has-value($break-point-keys, $break-point-key) {
+        @error "No break point #{$break-point-key}";
+    }
+
+    @media only screen and (min-height: #{map-get($layouts, $layout-key, break-points, $break-point-key)}px) {
+        @content;
+    }
+}
+
+@mixin min-width($break-point-key) {
+    @if not map-has-value($break-point-keys, $break-point-key) {
+        @error "No break point #{$break-point-key}";
+    }
+
+    &[min-width*='-#{$break-point-key}-'] {
+        @content;
+    }
+}
+
+@mixin min-height($break-point-key) {
+    @if not map-has-value($break-point-keys, $break-point-key) {
+        @error "No break point #{$break-point-key}";
+    }
+
+    &[min-height*='-#{$break-point-key}-'] {
+        @content;
+    }
+}

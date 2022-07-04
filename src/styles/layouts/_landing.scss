@@ -1,7 +1,7 @@
 /* landing layout */
 $landing-layout: (
     /* break point pxs */
-    break-point-pxs: (
+    break-points: (
         6xs: 320,
         5xs: 384,
         4xs: 448,
@@ -17,40 +17,6 @@ $landing-layout: (
         4xl: 1408,
         5xl: 1536,
         6xl: 1664,
-    ),
-    /* break point rems */
-    break-point-rems: (
-        /* 20rem */
-        6xs: calc(320 / 16),
-        /* 24rem */
-        5xs: calc(384 / 16),
-        /* 28rem */
-        4xs: calc(448 / 16),
-        /* 32rem */
-        3xs: calc(512 / 16),
-        /* 36rem */
-        2xs: calc(576 / 16),
-        /* 40rem */
-        xs: calc(640 / 16),
-        /* 44rem */
-        sm: calc(704 / 16),
-        /* 48rem */
-        md: calc(768 / 16),
-        /* 48 + 8 = 56rem */
-        lg: calc(896 / 16),
-        /* 64rem */
-        xl: calc(1024 / 16),
-        /* 72rem */
-        2xl: calc(1152 / 16),
-        /* 80rem */
-        3xl: calc(1280 / 16),
-        /* 88rem */
-        4xl: calc(1408 / 16),
-        /* 96rem */
-        5xl: calc(1536 / 16),
-        /* 104rem */
-        6xl: calc(1664 / 16),
-        /* 7xl: calc(1856 / 16); 104 + 12 = 116rem */
     ),
     /* lines height */
     lines: (
@@ -327,6 +293,16 @@ $landing-layout: (
                 strong: #e7455e,
                 strongest: #fefefe,
             ),
+        ),
+    ),
+    font-families: (
+        main:(
+            'Roboto',
+            sans-serif,
+        ),
+        number:(
+            'Roboto Mono',
+            monospace,
         ),
     ),
 );

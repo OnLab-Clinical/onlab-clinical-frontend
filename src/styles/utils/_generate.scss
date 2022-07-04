@@ -1,36 +1,16 @@
 @mixin generate-layout($layout: $landing-layout) {
-    /* break point pxs */
-    $break-point-pxs: map-get($layout, break-point-pxs);
-
-    @each $bpp-key, $bpp-value in $break-point-pxs {
-        --break-point-pxs-#{$bpp-key}: #{$bpp-value}px;
-    }
-
-    /* break point rems */
-    $break-point-rems: map-get($layout, break-point-rems);
-
-    @each $bpr-key, $bpr-value in $break-point-rems {
-        --break-point-rems-#{$bpr-key}: #{$bpr-value}rem;
-    }
-
     /* lines */
-    $lines: map-get($layout, lines);
-
-    @each $line-key, $line-value in $lines {
+    @each $line-key, $line-value in map-get($layout, lines) {
         --lines-#{$line-key}: #{$line-value};
     }
 
     /* weights */
-    $weights: map-get($layout, weights);
-
-    @each $weight-key, $weight-value in $weights {
+    @each $weight-key, $weight-value in map-get($layout, weights) {
         --weights-#{$weight-key}: #{$weight-value};
     }
 
     /* sizes */
-    $sizes: map-get($layout, sizes);
-
-    @each $size-type, $size-values in $sizes {
+    @each $size-type, $size-values in map-get($layout, sizes) {
         @each $size-key, $size-value in $size-values {
             $measure: rem;
 
@@ -47,9 +27,7 @@
     }
 
     /* opacities */
-    $opacities: map-get($layout, opacities);
-
-    @each $opacity-key, $opacity-value in $opacities {
+    @each $opacity-key, $opacity-value in map-get($layout, opacities) {
         --opacities-#{$opacity-key}: #{$opacity-value};
     }
 
@@ -62,9 +40,7 @@
     --opacities-border-shadow: 1;
 
     /* series */
-    $series: map-get($layout, series);
-
-    @each $serie-theme, $serie-values in $series {
+    @each $serie-theme, $serie-values in map-get($layout, series) {
         @each $serie-type, $serie-intensities in $serie-values {
             @each $intensity-key, $intensity-value in $serie-intensities {
                 --series-#{$serie-theme}-#{$serie-type}-#{$intensity-key}: #{red(
@@ -74,5 +50,9 @@
                     #{blue($intensity-value)};
             }
         }
+    }
+
+    @each $ff-key, $ff-value in map-get($layout, font-families) {
+        --font-family-#{$ff-key}: #{$ff-value};
     }
 }

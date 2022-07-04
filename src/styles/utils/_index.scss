@@ -1,3 +1,8 @@
+/* layouts */
+$layouts: (
+    landing: $landing-layout,
+);
+
 /* import */
 @import 'generate';
 @import 'flex';
@@ -6,4 +11,6 @@
 @import 'interactable';
 @import 'inset';
 @import 'font-family';
+@import 'font-size';
+@import 'screen';
 @import 'normalize';

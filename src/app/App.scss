@@ -3,3 +3,23 @@
 :root {
     @include generate-layout;
 }
+
+html {
+    @include font-size(xs, text);
+
+    @include screen-height(landing, xs) {
+        @include font-size(sm, text);
+    }
+
+    @include screen-height(landing, md) {
+        @include font-size(md, text);
+    }
+
+    @include screen-height(landing, xl) {
+        @include font-size(lg, text);
+    }
+
+    @include screen-height(landing, xl) {
+        @include font-size(xl, text);
+    }
+}

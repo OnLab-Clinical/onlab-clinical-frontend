@@ -7,7 +7,7 @@
 /* body */
 body {
     @include flex;
-    @include font-roboto;
+    @include font-family;
     @include inset;
     overflow: hidden;
 }
