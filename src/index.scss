@@ -6,7 +6,7 @@
 
 /* body */
 body {
-    @include flex-col;
+    @include flex;
     @include font-roboto;
     @include inset;
     overflow: hidden;
@@ -16,7 +16,7 @@ body {
 #modal,
 #loader,
 #notification {
-    @include flex-col;
+    @include flex;
     overflow: hidden;
 }
 
@@ -38,4 +38,19 @@ body {
 /* notification */
 #notification {
     z-index: 130;
+}
+
+input,
+button,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+
+    &:focus {
+        outline-offset: 2px;
+        outline: 2px solid transparent;
+    }
+}
+
+i {
+    @include flex(vertical, center, center);
 }

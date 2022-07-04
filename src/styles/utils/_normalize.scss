@@ -2,7 +2,6 @@
     &,
     &::before,
     &::after {
-        -webkit-tap-highlight-color: transparent;
         box-sizing: border-box;
         color: inherit;
         font-size: inherit;
@@ -10,15 +9,5 @@
         line-height: 1.25;
         margin: 0;
         padding: 0;
-    }
-
-    /* focus */
-    &:focus {
-        outline-offset: 2px;
-        outline: 2px solid transparent;
-    }
-
-    & {
-        @content;
     }
 }
