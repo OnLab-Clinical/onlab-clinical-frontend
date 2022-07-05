@@ -1,12 +1,12 @@
 @mixin generate-layout($layout: $landing-layout) {
     /* lines */
     @each $line-key, $line-value in map-get($layout, lines) {
-        --lines-#{$line-key}: #{$line-value};
+        --sbsys-lines-#{$line-key}: #{$line-value};
     }
 
     /* weights */
     @each $weight-key, $weight-value in map-get($layout, weights) {
-        --weights-#{$weight-key}: #{$weight-value};
+        --sbsys-weights-#{$weight-key}: #{$weight-value};
     }
 
     /* sizes */
@@ -22,28 +22,28 @@
                 $measure: '';
             }
 
-            --sizes-#{$size-type}-#{$size-key}: #{$size-value}#{$measure};
+            --sbsys-sizes-#{$size-type}-#{$size-key}: #{$size-value}#{$measure};
         }
     }
 
     /* opacities */
     @each $opacity-key, $opacity-value in map-get($layout, opacities) {
-        --opacities-#{$opacity-key}: #{$opacity-value};
+        --sbsys-opacities-#{$opacity-key}: #{$opacity-value};
     }
 
-    --opacities-bg: 1;
-    --opacities-font: 1;
-    --opacities-border-top: 1;
-    --opacities-border-bottom: 1;
-    --opacities-border-left: 1;
-    --opacities-border-right: 1;
-    --opacities-border-shadow: 1;
+    --sbsys-opacities-bg: 1;
+    --sbsys-opacities-font: 1;
+    --sbsys-opacities-border-top: 1;
+    --sbsys-opacities-border-bottom: 1;
+    --sbsys-opacities-border-left: 1;
+    --sbsys-opacities-border-right: 1;
+    --sbsys-opacities-border-shadow: 1;
 
     /* series */
     @each $serie-theme, $serie-values in map-get($layout, series) {
         @each $serie-type, $serie-intensities in $serie-values {
             @each $intensity-key, $intensity-value in $serie-intensities {
-                --series-#{$serie-theme}-#{$serie-type}-#{$intensity-key}: #{red(
+                --sbsys-series-#{$serie-theme}-#{$serie-type}-#{$intensity-key}: #{red(
                         $intensity-value
                     )}
                     #{green($intensity-value)}
@@ -53,6 +53,6 @@
     }
 
     @each $ff-key, $ff-value in map-get($layout, font-families) {
-        --font-family-#{$ff-key}: #{$ff-value};
+        --sbsys-font-family-#{$ff-key}: #{$ff-value};
     }
 }

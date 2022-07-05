@@ -7,5 +7,5 @@
         @error "No size type #{$size-type-key}";
     }
 
-    font-size: var(--sizes-#{$size-type-key}-#{$size-key});
+    font-size: var(--sbsys-sizes-#{$size-type-key}-#{$size-key});
 }
