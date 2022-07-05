@@ -9,3 +9,27 @@
 
     @return var(--sbsys-sizes-#{$size-type-key}-#{$size-key});
 }
+
+@mixin width($size-type-key, $size-key) {
+    width: size($size-type-key, $size-key);
+}
+
+@mixin max-width($size-type-key, $size-key) {
+    max-width: size($size-type-key, $size-key);
+}
+
+@mixin min-width($size-type-key, $size-key) {
+    min-width: size($size-type-key, $size-key);
+}
+
+@mixin height($size-type-key, $size-key) {
+    height: size($size-type-key, $size-key);
+}
+
+@mixin max-height($size-type-key, $size-key) {
+    max-height: size($size-type-key, $size-key);
+}
+
+@mixin min-height($size-type-key, $size-key) {
+    min-height: size($size-type-key, $size-key);
+}

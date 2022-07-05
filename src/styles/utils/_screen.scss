@@ -26,7 +26,7 @@
     }
 }
 
-@mixin min-width($break-point-key) {
+@mixin element-min-width($break-point-key) {
     @if not map-has-value($break-point-keys, $break-point-key) {
         @error "No break point #{$break-point-key}";
     }
@@ -36,7 +36,7 @@
     }
 }
 
-@mixin min-height($break-point-key) {
+@mixin element-min-height($break-point-key) {
     @if not map-has-value($break-point-keys, $break-point-key) {
         @error "No break point #{$break-point-key}";
     }
