@@ -1,5 +1,11 @@
 @function opacity($size-key) {
-    @if not map-has-value($size-key, $size-key) {
-        
+    @if not map-has-value($size-keys, $size-key) {
+        @error "No size #{$size-key}";
     }
+
+    @return var(--sbsys-opacities-#{$size-key});
+}
+
+@mixin opacity($size-key) {
+    opacity: opacity($size-key);
 }
