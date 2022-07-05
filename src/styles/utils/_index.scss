@@ -5,6 +5,7 @@ $layouts: (
 
 /* import */
 @import 'generate';
+@import 'size';
 @import 'flex';
 @import 'dots';
 @import 'disabled';
@@ -12,5 +13,8 @@ $layouts: (
 @import 'inset';
 @import 'font-family';
 @import 'font-size';
+@import 'line-height';
 @import 'screen';
+@import 'padding';
+@import 'margin';
 @import 'normalize';

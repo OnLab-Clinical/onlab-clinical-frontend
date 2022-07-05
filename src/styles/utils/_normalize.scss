@@ -2,12 +2,11 @@
     &,
     &::before,
     &::after {
+        @include margin(all split none);
+        @include padding(all split none);
         box-sizing: border-box;
         color: inherit;
         font-size: inherit;
         font-weight: inherit;
-        line-height: 1.25;
-        margin: 0;
-        padding: 0;
     }
 }

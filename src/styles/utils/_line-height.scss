@@ -1,4 +1,4 @@
-@mixin font-size($size-key, $size-type-key: font) {
+@mixin line-height($size-key, $size-type-key: lines) {
     @if not map-has-value($size-keys, $size-key) {
         @error "No size #{$size-key}";
     }
@@ -7,5 +7,5 @@
         @error "No size type #{$size-type-key}";
     }
 
-    font-size: size($size-type-key, $size-key);
+    line-height: var(--sbsys-#{$size-type-key}-#{$size-key});
 }

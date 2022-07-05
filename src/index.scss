@@ -8,7 +8,9 @@
 body {
     @include flex;
     @include font-family;
+    @include font-size(md);
     @include inset;
+    @include line-height(md);
     overflow: hidden;
 }
 
