@@ -1,0 +1,19 @@
+@function serie($theme-key, $serie-key, $intensity-key) {
+    @if not map-has-value($theme-keys, $theme-key) {
+        @error "No theme #{$theme-key}";
+    }
+
+    @if not map-has-value($serie-keys, $serie-key) {
+        @error "No serie #{$serie-key}";
+    }
+
+    @if not map-has-value($intensity-keys, $intensity-key) {
+        @error "No intensity #{$intensity-key}";
+    }
+
+    @return var(--sbsys-series-#{$theme-key}-#{$serie-key}-#{$intensity-key});
+}
+
+@mixin bg($theme-key, $serie-key, $intensity-key, $size-key: 2xl) {
+    
+}
