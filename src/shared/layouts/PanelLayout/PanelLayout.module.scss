@@ -5,10 +5,10 @@
     overflow: hidden;
 
     &.Horizontal {
-        @include flex-row;
+        @include flex(horizontal);
     }
 
     &.Vertical {
-        @include flex-col;
+        @include flex;
     }
 }

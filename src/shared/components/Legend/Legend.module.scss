@@ -1,7 +1,7 @@
 @import 'styles';
 
 .Legend {
-    @include flex-row;
+    @include flex(horizontal);
     overflow: hidden;
 
     &.Start {

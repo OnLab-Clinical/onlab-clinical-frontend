@@ -1,25 +1,25 @@
 @import 'styles';
 
 :root {
-    @include generate-layout;
+    @include generate-layout($app-layout);
 }
 
 html {
     @include font-size(xs, text);
 
-    @include screen-height(landing, xs) {
+    @include screen-height(app, xs) {
         @include font-size(sm, text);
     }
 
-    @include screen-height(landing, md) {
+    @include screen-height(app, md) {
         @include font-size(md, text);
     }
 
-    @include screen-height(landing, xl) {
+    @include screen-height(app, xl) {
         @include font-size(lg, text);
     }
 
-    @include screen-height(landing, xl) {
+    @include screen-height(app, xl) {
         @include font-size(xl, text);
     }
 }

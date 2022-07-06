@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@mixin generate-layout($layout: $landing-layout) {
+@mixin generate-layout($layout) {
     /* lines */
     @each $line-key, $line-value in map.get($layout, lines) {
         --sbsys-lines-#{$line-key}: #{$line-value};

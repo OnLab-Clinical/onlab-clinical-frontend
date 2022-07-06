@@ -1,7 +1,7 @@
 @import 'styles';
 
 .Field {
-    @include flex-row;
+    @include flex(horizontal);
     align-items: center;
 }
 
@@ -75,12 +75,12 @@
 }
 
 .FileLabel {
-    @include flex-row;
+    @include flex(horizontal);
     cursor: pointer;
     flex-grow: 1;
 }
 
 .PasswordIcon {
-    @include flex-center;
+    @include flex(vertical, center, center);
     @include interactable;
 }

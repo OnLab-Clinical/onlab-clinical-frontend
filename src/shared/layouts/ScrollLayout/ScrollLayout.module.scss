@@ -18,11 +18,11 @@
 
     &.Horizontal {
         overflow-x: auto;
-        @include flex-row;
+        @include flex(horizontal);
     }
 
     &.Vertical {
         overflow-y: auto;
-        @include flex-col;
+        @include flex;
     }
 }
