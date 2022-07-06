@@ -72,7 +72,19 @@ $alignment-keys: (start, center, end);
 $orientation-keys: (horizontal, vertical);
 
 /* positions */
+$corner-position-keys: (top-left, top-right, bottom-left, bottom-right);
 $position-keys: (top, bottom, y, left, right, x, all);
+$extended-position-keys: (
+    all,
+    top,
+    top-left,
+    top-right,
+    left,
+    bottom,
+    bottom-left,
+    bottom-right,
+    right
+);
 
 /* fonts */
 $font-family-keys: (main, number);

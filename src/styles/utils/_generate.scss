@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:list';
+
 @mixin generate-layout($layout: $landing-layout) {
     /* lines */
     @each $line-key, $line-value in map-get($layout, lines) {
@@ -37,7 +40,6 @@
     --sbsys-opacities-border-bottom: 1;
     --sbsys-opacities-border-left: 1;
     --sbsys-opacities-border-right: 1;
-    --sbsys-opacities-border-shadow: 1;
 
     /* series */
     @each $serie-theme, $serie-values in map-get($layout, series) {
@@ -54,5 +56,52 @@
 
     @each $ff-key, $ff-value in map-get($layout, font-families) {
         --sbsys-font-family-#{$ff-key}: #{$ff-value};
+    }
+
+    /* shadows */
+    @each $corner-position-key in $corner-position-keys {
+        @each $size-key in $size-keys {
+            $current-offset: map.get($layout, shadows, offset, $size-key);
+            $current-blur: map.get($layout, shadows, blur, $size-key);
+            $current-spread: map.get($layout, shadows, spread, $size-key);
+
+            $h-offset: 0;
+            $v-offset: 0;
+
+            @if $current-offset != 0 {
+                $h-offset: #{$current-offset}px;
+                $v-offset: #{$current-offset}px;
+
+                @if $corner-position-key == top-left {
+                    $h-offset: -#{$current-offset}px;
+                    $v-offset: -#{$current-offset}px;
+                }
+
+                @if $corner-position-key == top-right {
+                    $v-offset: -#{$current-offset}px;
+                }
+
+                @if $corner-position-key == bottom-left {
+                    $h-offset: -#{$current-offset}px;
+                }
+            }
+
+            $blur: 0;
+
+            @if $current-blur != 0 {
+                $blur: #{$current-blur}px;
+            }
+
+            $spread: 0;
+
+            @if $current-spread != 0 {
+                $spread: #{$current-spread}px;
+            }
+
+            --sbsys-shadows-#{$corner-position-key}-#{$size-key}: #{$h-offset}
+                #{$v-offset}
+                #{$blur}
+                #{$spread};
+        }
     }
 }

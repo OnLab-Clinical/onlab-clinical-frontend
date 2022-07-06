@@ -122,6 +122,36 @@ $landing-layout: (
             2xl: 72,
         ),
     ),
+    /* shadows */
+    shadows: (
+        offset: (
+            none: 0,
+            xs: 4,
+            sm: 8,
+            md: 12,
+            lg: 16,
+            xl: 20,
+            2xl: 24,
+        ),
+        blur: (
+            none: 0,
+            xs: 6,
+            sm: 12,
+            md: 18,
+            lg: 24,
+            xl: 30,
+            2xl: 36,
+        ),
+        spread: (
+            none: 0,
+            xs: -2,
+            sm: -4,
+            md: -6,
+            lg: -8,
+            xl: -10,
+            2xl: -12,
+        )
+    ),
     /* opacities */
     opacities: (
         none: 0,
