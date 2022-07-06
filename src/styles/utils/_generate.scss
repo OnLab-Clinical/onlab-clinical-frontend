@@ -1,19 +1,18 @@
 @use 'sass:map';
-@use 'sass:list';
 
 @mixin generate-layout($layout: $landing-layout) {
     /* lines */
-    @each $line-key, $line-value in map-get($layout, lines) {
+    @each $line-key, $line-value in map.get($layout, lines) {
         --sbsys-lines-#{$line-key}: #{$line-value};
     }
 
     /* weights */
-    @each $weight-key, $weight-value in map-get($layout, weights) {
+    @each $weight-key, $weight-value in map.get($layout, weights) {
         --sbsys-weights-#{$weight-key}: #{$weight-value};
     }
 
     /* sizes */
-    @each $size-type, $size-values in map-get($layout, sizes) {
+    @each $size-type, $size-values in map.get($layout, sizes) {
         @each $size-key, $size-value in $size-values {
             $measure: rem;
 
@@ -30,7 +29,7 @@
     }
 
     /* opacities */
-    @each $opacity-key, $opacity-value in map-get($layout, opacities) {
+    @each $opacity-key, $opacity-value in map.get($layout, opacities) {
         --sbsys-opacities-#{$opacity-key}: #{$opacity-value};
     }
 
@@ -42,7 +41,7 @@
     --sbsys-opacities-border-right: 1;
 
     /* series */
-    @each $serie-theme, $serie-values in map-get($layout, series) {
+    @each $serie-theme, $serie-values in map.get($layout, series) {
         @each $serie-type, $serie-intensities in $serie-values {
             @each $intensity-key, $intensity-value in $serie-intensities {
                 --sbsys-series-#{$serie-theme}-#{$serie-type}-#{$intensity-key}: #{red(
@@ -54,7 +53,7 @@
         }
     }
 
-    @each $ff-key, $ff-value in map-get($layout, font-families) {
+    @each $ff-key, $ff-value in map.get($layout, font-families) {
         --sbsys-font-family-#{$ff-key}: #{$ff-value};
     }
 
@@ -103,5 +102,9 @@
                 #{$blur}
                 #{$spread};
         }
+
+        --sbsys-shadows-#{$corner-position-key}-color: 0 0 0;
+
+        --sbsys-shadows-#{$corner-position-key}-opacity: 0.1;
     }
 }

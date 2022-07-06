@@ -21,9 +21,11 @@
             $position-key ==
             all
         {
-            $top-left-shadow: var(--sbsys-shadows-top-left)
-                var(--sbsys-shadows-#{$size-key})
-                rgb(var(--sbsys-shadow-top-left-color) / 0.1);
+            $top-left-shadow: var(--sbsys-shadows-top-left-#{$size-key})
+                rgb(
+                    var(--sbsys-shadows-top-left-color) /
+                        var(--sbsys-shadows-top-left-opacity)
+                );
 
             @if $shadow == none {
                 $shadow: $top-left-shadow;
@@ -41,9 +43,11 @@
             $position-key ==
             all
         {
-            $top-right-shadow: var(--sbsys-shadows-top-right)
-                var(--sbsys-shadows-#{$size-key})
-                rgb(var(--sbsys-shadow-top-right-color) / 0.1);
+            $top-right-shadow: var(--sbsys-shadows-top-right-#{$size-key})
+                rgb(
+                    var(--sbsys-shadows-top-right-color) /
+                        var(--sbsys-shadows-top-right-opacity)
+                );
 
             @if $shadow == none {
                 $shadow: $top-right-shadow;
@@ -61,9 +65,11 @@
             $position-key ==
             all
         {
-            $bottom-left-shadow: var(--sbsys-shadows-bottom-left)
-                var(--sbsys-shadows-#{$size-key})
-                rgb(var(--sbsys-shadow-bottom-left-color) / 0.1);
+            $bottom-left-shadow: var(--sbsys-shadows-bottom-left-#{$size-key})
+                rgb(
+                    var(--sbsys-shadows-bottom-left-color) /
+                        var(--sbsys-shadows-bottom-left-opacity)
+                );
 
             @if $shadow == none {
                 $shadow: $bottom-left-shadow;
@@ -81,9 +87,11 @@
             $position-key ==
             all
         {
-            $bottom-right-shadow: var(--sbsys-shadows-bottom-right)
-                var(--sbsys-shadows-#{$size-key})
-                rgb(var(--sbsys-shadow-bottom-right-color) / 0.1);
+            $bottom-right-shadow: var(--sbsys-shadows-bottom-right-#{$size-key})
+                rgb(
+                    var(--sbsys-shadows-bottom-right-color) /
+                        var(--sbsys-shadows-bottom-right-opacity)
+                );
 
             @if $shadow == none {
                 $shadow: $bottom-right-shadow;
@@ -94,4 +102,132 @@
     }
 
     box-shadow: $shadow;
+}
+
+@mixin shadow-color($positions...) {
+    @each $position-key, $theme-key, $serie-key, $intensity-key in $positions {
+        @if not list.index($extended-position-keys, $position-key) {
+            @error "No position #{$position-key}";
+        }
+
+        @if $position-key ==
+            top or
+            $position-key ==
+            left or
+            $position-key ==
+            top-left or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-top-left-color: #{serie(
+                    $theme-key,
+                    $serie-key,
+                    $intensity-key
+                )};
+        }
+
+        @if $position-key ==
+            top or
+            $position-key ==
+            right or
+            $position-key ==
+            top-right or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-top-right-color: #{serie(
+                    $theme-key,
+                    $serie-key,
+                    $intensity-key
+                )};
+        }
+
+        @if $position-key ==
+            bottom or
+            $position-key ==
+            left or
+            $position-key ==
+            bottom-left or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-bottom-left-color: #{serie(
+                    $theme-key,
+                    $serie-key,
+                    $intensity-key
+                )};
+        }
+
+        @if $position-key ==
+            bottom or
+            $position-key ==
+            right or
+            $position-key ==
+            bottom-right or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-bottom-right-color: #{serie(
+                    $theme-key,
+                    $serie-key,
+                    $intensity-key
+                )};
+        }
+    }
+}
+
+@mixin shadow-opacity($positions...) {
+    @each $position-key, $size-key in $positions {
+        @if not list.index($extended-position-keys, $position-key) {
+            @error "No position #{$position-key}";
+        }
+
+        @if $position-key ==
+            top or
+            $position-key ==
+            left or
+            $position-key ==
+            top-left or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-top-left-opacity: #{opacity($size-key)};
+        }
+
+        @if $position-key ==
+            top or
+            $position-key ==
+            right or
+            $position-key ==
+            top-right or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-top-right-opacity: #{opacity($size-key)};
+        }
+
+        @if $position-key ==
+            bottom or
+            $position-key ==
+            left or
+            $position-key ==
+            bottom-left or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-bottom-left-opacity: #{opacity($size-key)};
+        }
+
+        @if $position-key ==
+            bottom or
+            $position-key ==
+            right or
+            $position-key ==
+            bottom-right or
+            $position-key ==
+            all
+        {
+            --sbsys-shadows-bottom-right-opacity: #{opacity($size-key)};
+        }
+    }
 }

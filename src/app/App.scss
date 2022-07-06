@@ -23,10 +23,3 @@ html {
         @include font-size(xl, text);
     }
 }
-
-#root {
-    width: 64px;
-    max-height: 64px;
-    margin: auto;
-    @include shadow(top xs, left md);
-}
