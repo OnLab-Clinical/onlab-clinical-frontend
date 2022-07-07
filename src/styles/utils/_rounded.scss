@@ -1,6 +1,8 @@
+@use 'sass:list';
+
 @mixin rounded($positions...) {
     @each $position-key, $size-type-key, $size-key in $positions {
-        @if not map-has-value($extended-position-keys, $position-key) {
+        @if not list.index($extended-position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
 

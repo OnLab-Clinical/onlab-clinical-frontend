@@ -8,3 +8,6 @@ export const mergeString = ({ joinValue, values = [] }: MergeString): string =>
 
 export const classNames = (...names: (false | null | undefined | string)[]) =>
     mergeString({ values: names, joinValue: ' ' });
+
+export const bem = (...names: (false | null | undefined | string)[]) =>
+    mergeString({ values: names, joinValue: '' });

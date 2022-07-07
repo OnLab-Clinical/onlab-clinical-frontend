@@ -1,33 +1,27 @@
-@mixin screen-width($layout-key, $break-point-key) {
-    @if not map-has-key($layouts, $layout-key) {
-        @error "No layout #{$layout-key}";
-    }
+@use 'sass:map';
 
-    @if not map-has-value($break-point-keys, $break-point-key) {
+@mixin screen-width($break-point-key) {
+    @if not map.get($break-points, $break-point-key) {
         @error "No break point #{$break-point-key}";
     }
 
-    @media only screen and (min-width: #{map-get($layouts, $layout-key, break-points, $break-point-key)}px) {
+    @media only screen and (min-width: #{map.get($break-points, $break-point-key)}px) {
         @content;
     }
 }
 
-@mixin screen-height($layout-key, $break-point-key) {
-    @if not map-has-key($layouts, $layout-key) {
-        @error "No layout #{$layout-key}";
-    }
-
-    @if not map-has-value($break-point-keys, $break-point-key) {
+@mixin screen-height($break-point-key) {
+    @if not map.get($break-points, $break-point-key) {
         @error "No break point #{$break-point-key}";
     }
 
-    @media only screen and (min-height: #{map-get($layouts, $layout-key, break-points, $break-point-key)}px) {
+    @media only screen and (min-height: #{map.get($break-points, $break-point-key)}px) {
         @content;
     }
 }
 
 @mixin element-min-width($break-point-key) {
-    @if not map-has-value($break-point-keys, $break-point-key) {
+    @if not map.get($break-points, $break-point-key) {
         @error "No break point #{$break-point-key}";
     }
 
@@ -37,7 +31,7 @@
 }
 
 @mixin element-min-height($break-point-key) {
-    @if not map-has-value($break-point-keys, $break-point-key) {
+    @if not map.get($break-points, $break-point-key) {
         @error "No break point #{$break-point-key}";
     }
 

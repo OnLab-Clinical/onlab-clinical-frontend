@@ -4,11 +4,11 @@
     flex-grow: 1;
     overflow: hidden;
 
-    &.Horizontal {
-        @include flex(horizontal);
+    &.Col {
+        @include flex;
     }
 
-    &.Vertical {
-        @include flex;
+    &.Row {
+        @include flex(row);
     }
 }

@@ -1,15 +1,15 @@
-@mixin flex($orientation: vertical, $alignment: none, $justify: none) {
+@mixin flex($orientation: col, $alignment: none, $justify: none) {
     @if not map-has-value($orientation-keys, $orientation) {
         @error "No orientation #{$orientation}";
     }
 
     display: flex;
 
-    @if $orientation == horizontal {
+    @if $orientation == row {
         flex-direction: row;
     }
 
-    @if $orientation == vertical {
+    @if $orientation == col {
         flex-direction: column;
     }
 

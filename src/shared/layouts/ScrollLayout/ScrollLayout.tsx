@@ -12,8 +12,8 @@ import { Orientation } from 'shared/types';
 import styles from './ScrollLayout.module.scss';
 
 const orientationStrategy: Record<Orientation, string> = {
-    horizontal: styles.Horizontal,
-    vertical: styles.Vertical,
+    col: styles.Col,
+    row: styles.Row,
 };
 
 const ScrollLayout: FC<ScrollLayoutProps> = ({

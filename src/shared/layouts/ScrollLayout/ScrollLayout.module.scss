@@ -16,13 +16,13 @@
 
     /* &::-webkit-scrollbar-thumb {} */
 
-    &.Horizontal {
+    &.Col {
+        @include flex;
         overflow-x: auto;
-        @include flex(horizontal);
     }
 
-    &.Vertical {
+    &.Row {
+        @include flex(row);
         overflow-y: auto;
-        @include flex;
     }
 }

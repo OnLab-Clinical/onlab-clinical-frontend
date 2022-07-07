@@ -7,7 +7,7 @@ import './DashboardView.scss';
 
 const DashboardView: FC = () => {
     return (
-        <PanelLayout orientation="horizontal" className="dashboard-view">
+        <PanelLayout orientation="col" className="dashboard-view">
             Dashboard
         </PanelLayout>
     );

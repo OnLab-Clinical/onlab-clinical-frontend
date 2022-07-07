@@ -7,7 +7,7 @@ import { DashboardDesktop } from './DashboardDesktop';
 
 const DashboardLayout: FC = () => {
     return (
-        <PanelLayout orientation="vertical">
+        <PanelLayout orientation="col">
             <DashboardDesktop />
         </PanelLayout>
     );

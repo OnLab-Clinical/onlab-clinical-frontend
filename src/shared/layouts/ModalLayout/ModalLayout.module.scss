@@ -10,7 +10,7 @@
         padding: 1rem;
     }
 
-    &.Horizontal {
+    &.Row {
         &Start {
             justify-items: start;
         }
@@ -24,7 +24,7 @@
         }
     }
 
-    &.Vertical {
+    &.Col {
         &Start {
             align-items: start;
         }

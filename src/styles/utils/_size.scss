@@ -1,13 +1,15 @@
+@use 'sass:list';
+
 @function size($size-type-key, $size-key) {
-    @if not map-has-value($size-type-keys, $size-type-key) {
+    @if not list.index($size-type-keys, $size-type-key) {
         @error "No size type #{$size-key}";
     }
 
-    @if not map-has-value($size-keys, $size-key) {
+    @if not list.index($size-keys, $size-key) {
         @error "No size #{$size-key}";
     }
 
-    @return var(--sbsys-sizes-#{$size-type-key}-#{$size-key});
+    @return var(--#{$prefix}-#{$size-type-key}-#{$size-key});
 }
 
 @mixin width($size-type-key, $size-key) {

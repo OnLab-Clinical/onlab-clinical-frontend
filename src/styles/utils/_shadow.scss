@@ -21,10 +21,10 @@
             $position-key ==
             all
         {
-            $top-left-shadow: var(--sbsys-shadows-top-left-#{$size-key})
+            $top-left-shadow: var(--#{$prefix}-shadow-top-left-#{$size-key})
                 rgb(
-                    var(--sbsys-shadows-top-left-color) /
-                        var(--sbsys-shadows-top-left-opacity)
+                    var(--#{$prefix}-shadow-top-left-color) /
+                        var(--#{$prefix}-shadow-top-left-opacity)
                 );
 
             @if $shadow == none {
@@ -43,10 +43,10 @@
             $position-key ==
             all
         {
-            $top-right-shadow: var(--sbsys-shadows-top-right-#{$size-key})
+            $top-right-shadow: var(--#{$prefix}-shadow-top-right-#{$size-key})
                 rgb(
-                    var(--sbsys-shadows-top-right-color) /
-                        var(--sbsys-shadows-top-right-opacity)
+                    var(--#{$prefix}-shadow-top-right-color) /
+                        var(--#{$prefix}-shadow-top-right-opacity)
                 );
 
             @if $shadow == none {
@@ -65,10 +65,12 @@
             $position-key ==
             all
         {
-            $bottom-left-shadow: var(--sbsys-shadows-bottom-left-#{$size-key})
+            $bottom-left-shadow: var(
+                    --#{$prefix}-shadow-bottom-left-#{$size-key}
+                )
                 rgb(
-                    var(--sbsys-shadows-bottom-left-color) /
-                        var(--sbsys-shadows-bottom-left-opacity)
+                    var(--#{$prefix}-shadow-bottom-left-color) /
+                        var(--#{$prefix}-shadow-bottom-left-opacity)
                 );
 
             @if $shadow == none {
@@ -87,10 +89,12 @@
             $position-key ==
             all
         {
-            $bottom-right-shadow: var(--sbsys-shadows-bottom-right-#{$size-key})
+            $bottom-right-shadow: var(
+                    --#{$prefix}-shadow-bottom-right-#{$size-key}
+                )
                 rgb(
-                    var(--sbsys-shadows-bottom-right-color) /
-                        var(--sbsys-shadows-bottom-right-opacity)
+                    var(--#{$prefix}-shadow-bottom-right-color) /
+                        var(--#{$prefix}-shadow-bottom-right-opacity)
                 );
 
             @if $shadow == none {
@@ -105,7 +109,7 @@
 }
 
 @mixin shadow-color($positions...) {
-    @each $position-key, $theme-key, $serie-key, $intensity-key in $positions {
+    @each $position-key, $serie-key, $intensity-key in $positions {
         @if not list.index($extended-position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
@@ -119,8 +123,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-top-left-color: #{serie(
-                    $theme-key,
+            --#{$prefix}-shadow-top-left-color: #{serie(
                     $serie-key,
                     $intensity-key
                 )};
@@ -135,8 +138,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-top-right-color: #{serie(
-                    $theme-key,
+            --#{$prefix}-shadow-top-right-color: #{serie(
                     $serie-key,
                     $intensity-key
                 )};
@@ -151,8 +153,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-bottom-left-color: #{serie(
-                    $theme-key,
+            --#{$prefix}-shadow-bottom-left-color: #{serie(
                     $serie-key,
                     $intensity-key
                 )};
@@ -167,8 +168,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-bottom-right-color: #{serie(
-                    $theme-key,
+            --#{$prefix}-shadow-bottom-right-color: #{serie(
                     $serie-key,
                     $intensity-key
                 )};
@@ -177,7 +177,7 @@
 }
 
 @mixin shadow-opacity($positions...) {
-    @each $position-key, $size-key in $positions {
+    @each $position-key, $opacity-key in $positions {
         @if not list.index($extended-position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
@@ -191,7 +191,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-top-left-opacity: #{opacity($size-key)};
+            --#{$prefix}-shadow-top-left-opacity: #{opacity($opacity-key)};
         }
 
         @if $position-key ==
@@ -203,7 +203,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-top-right-opacity: #{opacity($size-key)};
+            --#{$prefix}-shadow-top-right-opacity: #{opacity($opacity-key)};
         }
 
         @if $position-key ==
@@ -215,7 +215,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-bottom-left-opacity: #{opacity($size-key)};
+            --#{$prefix}-shadow-bottom-left-opacity: #{opacity($opacity-key)};
         }
 
         @if $position-key ==
@@ -227,7 +227,7 @@
             $position-key ==
             all
         {
-            --sbsys-shadows-bottom-right-opacity: #{opacity($size-key)};
+            --#{$prefix}-shadow-bottom-right-opacity: #{opacity($opacity-key)};
         }
     }
 }

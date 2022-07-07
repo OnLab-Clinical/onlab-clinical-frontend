@@ -1,6 +1,8 @@
+@use 'sass:list';
+
 @mixin border-width($positions...) {
     @each $position-key, $size-type-key, $size-key in $positions {
-        @if not map-has-value($position-keys, $position-key) {
+        @if not list.index($position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
 

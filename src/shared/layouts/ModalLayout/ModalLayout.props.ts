@@ -19,6 +19,6 @@ export interface ModalLayoutProps
     node?: Element | DocumentFragment;
     nodeId?: string;
 
-    verticalAlignment?: Alignment;
-    horizontalAlignment?: Alignment;
+    colAlignment?: Alignment;
+    rowAlignment?: Alignment;
 }

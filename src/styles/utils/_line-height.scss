@@ -1,7 +1,9 @@
+@use 'sass:list';
+
 @mixin line-height($size-key) {
-    @if not map-has-value($size-keys, $size-key) {
+    @if not list.index($size-keys, $size-key) {
         @error "No size #{$size-key}";
     }
 
-    line-height: var(--sbsys-lines-#{$size-key});
+    line-height: var(--#{$prefix}-line-#{$size-key});
 }

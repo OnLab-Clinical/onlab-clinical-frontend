@@ -10,16 +10,16 @@ import { Alignment } from 'shared/types';
 /* styles */
 import styles from './ModalLayout.module.scss';
 
-const horizontalAlignmentStrategy: Record<Alignment, string> = {
-    start: styles.HorizontalStart,
-    center: styles.HorizontalCenter,
-    end: styles.HorizontalEnd,
+const colAlignmentStrategy: Record<Alignment, string> = {
+    start: styles.ColStart,
+    center: styles.ColCenter,
+    end: styles.ColEnd,
 };
 
-const verticalAlignmentStrategy: Record<Alignment, string> = {
-    start: styles.VerticalStart,
-    center: styles.VerticalCenter,
-    end: styles.VerticalEnd,
+const rowAlignmentStrategy: Record<Alignment, string> = {
+    start: styles.RowStart,
+    center: styles.RowCenter,
+    end: styles.RowEnd,
 };
 
 const ModalLayout: FC<ModalLayoutProps> = ({
@@ -30,8 +30,8 @@ const ModalLayout: FC<ModalLayoutProps> = ({
     children,
     node,
     nodeId,
-    verticalAlignment,
-    horizontalAlignment,
+    colAlignment,
+    rowAlignment,
     ...rest
 }) => {
     if (!isVisible) return <></>;
@@ -41,10 +41,8 @@ const ModalLayout: FC<ModalLayoutProps> = ({
             className={classNames(
                 styles.ModalLayout,
                 hasIndentation && styles.Indentation,
-                verticalAlignment &&
-                    verticalAlignmentStrategy[verticalAlignment],
-                horizontalAlignment &&
-                    horizontalAlignmentStrategy[horizontalAlignment]
+                colAlignment && colAlignmentStrategy[colAlignment],
+                rowAlignment && rowAlignmentStrategy[rowAlignment]
             )}
             {...rest}>
             <div className={styles.Overlay} onClick={onClickOverlay} />

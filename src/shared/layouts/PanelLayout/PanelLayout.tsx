@@ -10,8 +10,8 @@ import { Orientation } from 'shared/types';
 import styles from './PanelLayout.module.scss';
 
 const orientationStrategy: Record<Orientation, string> = {
-    horizontal: styles.Horizontal,
-    vertical: styles.Vertical,
+    col: styles.Col,
+    row: styles.Row,
 };
 
 const PanelLayout: FC<PanelLayoutProps> = ({

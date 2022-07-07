@@ -1,25 +1,26 @@
 @import 'styles';
 
+:root {
+    @include generate;
+}
+
 * {
     @include normalize;
 }
 
-/* body */
-body {
-    @include flex;
-    @include font-family;
-    @include font-size(md);
-    @include inset;
-    @include line-height(md);
-    overflow: hidden;
-}
-
+body,
 #root,
 #modal,
 #loader,
 #notification {
     @include flex;
     overflow: hidden;
+}
+
+/* body */
+body {
+    @include font-family;
+    @include inset;
 }
 
 /* root */
@@ -54,5 +55,5 @@ textarea {
 }
 
 i {
-    @include flex(vertical, center, center);
+    @include flex(col, center, center);
 }

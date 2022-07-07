@@ -1,0 +1,7 @@
+@import 'styles';
+
+.app-dashboard-desktop {
+    &__sidebar {
+        flex-basis: size(component, sm);
+    }
+}

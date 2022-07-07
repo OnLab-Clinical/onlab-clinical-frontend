@@ -1,51 +1,47 @@
-@function serie($theme-key, $serie-key, $intensity-key) {
-    @if not map-has-value($theme-keys, $theme-key) {
-        @error "No theme #{$theme-key}";
-    }
+@use 'sass:list';
 
-    @if not map-has-value($serie-keys, $serie-key) {
+@function serie($serie-key, $intensity-key) {
+    @if not list.index($serie-keys, $serie-key) {
         @error "No serie #{$serie-key}";
     }
 
-    @if not map-has-value($intensity-keys, $intensity-key) {
+    @if not list.index($intensity-keys, $intensity-key) {
         @error "No intensity #{$intensity-key}";
     }
 
-    @return var(--sbsys-series-#{$theme-key}-#{$serie-key}-#{$intensity-key});
+    @return var(--#{$prefix}-#{$serie-key}-#{$intensity-key});
 }
 
-@mixin bg-color($theme-key, $serie-key, $intensity-key) {
+@mixin bg-color($intensity-key, $serie-key: bg) {
     background-color: rgb(
-        serie($theme-key, $serie-key, $intensity-key) /
-            var(--sbsys-opacities-bg)
+        serie($serie-key, $intensity-key) / var(--#{$prefix}-opacity-bg)
     );
 }
 
 @mixin bg-opacity($opacity-key) {
-    --sbsys-opacities-bg: #{opacity($opacity-key)};
+    --#{$prefix}-opacity-bg: #{opacity($opacity-key)};
 }
 
-@mixin font-color($theme-key, $serie-key, $intensity-key) {
+@mixin font-color($intensity-key, $serie-key: font) {
     color: rgb(
-        serie($theme-key, $serie-key, $intensity-key) /
-            var(--sbsys-opacities-font)
+        serie($serie-key, $intensity-key) / var(--#{$prefix}-opacity-font)
     );
 }
 
 @mixin font-opacity($opacity-key) {
-    --sbsys-opacities-font: #{opacity($opacity-key)};
+    --#{$prefix}-opacity-font: #{opacity($opacity-key)};
 }
 
 @mixin border-color($positions...) {
-    @each $position-key, $theme-key, $serie-key, $intensity-key in $positions {
+    @each $position-key, $serie-key, $intensity-key in $positions {
         @if not map-has-value($position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
 
         @if $position-key == y or $position-key == top or $position-key == all {
             border-top-color: rgb(
-                serie($theme-key, $serie-key, $intensity-key) /
-                    var(--sbsys-opacities-border-top)
+                serie($serie-key, $intensity-key) /
+                    var(--#{$prefix}-opacity-border-top)
             );
         }
 
@@ -57,24 +53,24 @@
             all
         {
             border-bottom-color: rgb(
-                serie($theme-key, $serie-key, $intensity-key) /
-                    var(--sbsys-opacities-border-bottom)
+                serie($serie-key, $intensity-key) /
+                    var(--#{$prefix}-opacity-border-bottom)
             );
         }
 
         @if $position-key == x or $position-key == left or $position-key == all
         {
             border-left-color: rgb(
-                serie($theme-key, $serie-key, $intensity-key) /
-                    var(--sbsys-opacities-border-left)
+                serie($serie-key, $intensity-key) /
+                    var(--#{$prefix}-opacity-border-left)
             );
         }
 
         @if $position-key == x or $position-key == right or $position-key == all
         {
             border-right-color: rgb(
-                serie($theme-key, $serie-key, $intensity-key) /
-                    var(--sbsys-opacities-border-right)
+                serie($serie-key, $intensity-key) /
+                    var(--#{$prefix}-opacity-border-right)
             );
         }
     }
@@ -87,7 +83,7 @@
         }
 
         @if $position-key == y or $position-key == top or $position-key == all {
-            --sbsys-opacities-border-top: #{opacity($opacity-key)};
+            --#{$prefix}-opacity-border-top: #{opacity($opacity-key)};
         }
 
         @if $position-key ==
@@ -97,17 +93,17 @@
             $position-key ==
             all
         {
-            --sbsys-opacities-border-bottom: #{opacity($opacity-key)};
+            --#{$prefix}-opacity-border-bottom: #{opacity($opacity-key)};
         }
 
         @if $position-key == x or $position-key == left or $position-key == all
         {
-            --sbsys-opacities-border-left: #{opacity($opacity-key)};
+            --#{$prefix}-opacity-border-left: #{opacity($opacity-key)};
         }
 
         @if $position-key == x or $position-key == right or $position-key == all
         {
-            --sbsys-opacities-border-right: #{opacity($opacity-key)};
+            --#{$prefix}-opacity-border-right: #{opacity($opacity-key)};
         }
     }
 }
