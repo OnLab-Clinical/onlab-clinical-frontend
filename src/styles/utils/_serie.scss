@@ -1,12 +1,12 @@
 @use 'sass:list';
 
-@function serie($serie-key, $intensity-key) {
-    @if not list.index($serie-keys, $serie-key) {
-        @error "No serie #{$serie-key}";
-    }
-
+@function serie($intensity-key, $serie-key) {
     @if not list.index($intensity-keys, $intensity-key) {
         @error "No intensity #{$intensity-key}";
+    }
+
+    @if not list.index($serie-keys, $serie-key) {
+        @error "No serie #{$serie-key}";
     }
 
     @return var(--#{$prefix}-#{$serie-key}-#{$intensity-key});
@@ -14,7 +14,7 @@
 
 @mixin bg-color($intensity-key, $serie-key: bg) {
     background-color: rgb(
-        serie($serie-key, $intensity-key) / var(--#{$prefix}-opacity-bg)
+        serie($intensity-key, $serie-key) / var(--#{$prefix}-opacity-bg)
     );
 }
 
@@ -24,7 +24,7 @@
 
 @mixin font-color($intensity-key, $serie-key: font) {
     color: rgb(
-        serie($serie-key, $intensity-key) / var(--#{$prefix}-opacity-font)
+        serie($intensity-key, $serie-key) / var(--#{$prefix}-opacity-font)
     );
 }
 
@@ -33,14 +33,14 @@
 }
 
 @mixin border-color($positions...) {
-    @each $position-key, $serie-key, $intensity-key in $positions {
+    @each $position-key, $intensity-key, $serie-key in $positions {
         @if not map-has-value($position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
 
         @if $position-key == y or $position-key == top or $position-key == all {
             border-top-color: rgb(
-                serie($serie-key, $intensity-key) /
+                serie($intensity-key, $serie-key) /
                     var(--#{$prefix}-opacity-border-top)
             );
         }
@@ -53,7 +53,7 @@
             all
         {
             border-bottom-color: rgb(
-                serie($serie-key, $intensity-key) /
+                serie($intensity-key, $serie-key) /
                     var(--#{$prefix}-opacity-border-bottom)
             );
         }
@@ -61,7 +61,7 @@
         @if $position-key == x or $position-key == left or $position-key == all
         {
             border-left-color: rgb(
-                serie($serie-key, $intensity-key) /
+                serie($intensity-key, $serie-key) /
                     var(--#{$prefix}-opacity-border-left)
             );
         }
@@ -69,7 +69,7 @@
         @if $position-key == x or $position-key == right or $position-key == all
         {
             border-right-color: rgb(
-                serie($serie-key, $intensity-key) /
+                serie($intensity-key, $serie-key) /
                     var(--#{$prefix}-opacity-border-right)
             );
         }

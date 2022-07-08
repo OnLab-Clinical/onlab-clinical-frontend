@@ -1,0 +1,16 @@
+@import 'styles';
+
+.Group {
+    @include flex;
+    @include gap(all md);
+
+    & > span {
+        @include font-weight(lg);
+        @include padding(x xl);
+    }
+
+    & > nav {
+        @include flex;
+        @include gap(all sm);
+    }
+}

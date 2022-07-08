@@ -6,23 +6,45 @@
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
-        width: 0.25rem;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-clip: content-box;
+        @include height(none, split);
+        @include width(none, split);
         background-color: transparent;
     }
 
-    /* &::-webkit-scrollbar-thumb {} */
+    &::-webkit-scrollbar-track {
+        @include bg-color(700, none);
+        @include bg-opacity(0);
+        @include rounded(all md);
+        background-clip: content-box;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @include bg-color(400, none);
+        @include bg-opacity(70);
+        @include rounded(all md);
+    }
+
+    &:hover {
+        &::-webkit-scrollbar {
+            @include height(none, split);
+            @include width(md, split);
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-track {
+            @include bg-opacity(70);
+        }
+    }
 
     &.Col {
         @include flex;
-        overflow-x: auto;
+        overflow-y: auto;
+        overflow-y: overlay;
     }
 
     &.Row {
         @include flex(row);
-        overflow-y: auto;
+        overflow-x: auto;
+        overflow-x: overlay;
     }
 }

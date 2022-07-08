@@ -27,7 +27,8 @@ const ScrollLayout: FC<ScrollLayoutProps> = ({
             <div
                 className={classNames(
                     styles.ScrollLayout,
-                    orientation && orientationStrategy[orientation]
+                    orientation && orientationStrategy[orientation],
+                    classNameContent
                 )}>
                 {typeof children === 'function' ? children() : children}
             </div>

@@ -3,7 +3,7 @@
 @mixin shadow($positions...) {
     $shadow: none;
 
-    @each $position-key, $size-key in $positions {
+    @each $position-key, $size-key, $inset in $positions {
         @if not list.index($extended-position-keys, $position-key) {
             @error "No position #{$position-key}";
         }
@@ -25,7 +25,8 @@
                 rgb(
                     var(--#{$prefix}-shadow-top-left-color) /
                         var(--#{$prefix}-shadow-top-left-opacity)
-                );
+                )
+                $inset;
 
             @if $shadow == none {
                 $shadow: $top-left-shadow;
@@ -47,7 +48,8 @@
                 rgb(
                     var(--#{$prefix}-shadow-top-right-color) /
                         var(--#{$prefix}-shadow-top-right-opacity)
-                );
+                )
+                $inset;
 
             @if $shadow == none {
                 $shadow: $top-right-shadow;
@@ -71,7 +73,8 @@
                 rgb(
                     var(--#{$prefix}-shadow-bottom-left-color) /
                         var(--#{$prefix}-shadow-bottom-left-opacity)
-                );
+                )
+                $inset;
 
             @if $shadow == none {
                 $shadow: $bottom-left-shadow;
@@ -95,7 +98,8 @@
                 rgb(
                     var(--#{$prefix}-shadow-bottom-right-color) /
                         var(--#{$prefix}-shadow-bottom-right-opacity)
-                );
+                )
+                $inset;
 
             @if $shadow == none {
                 $shadow: $bottom-right-shadow;

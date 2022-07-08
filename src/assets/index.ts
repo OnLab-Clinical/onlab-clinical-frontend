@@ -1,5 +1,5 @@
-/* import */
-import { ReactComponent as LogoAsset } from './logo.svg';
+/* import src/components */
+import AppLogoSrc, { ReactComponent as AppLogo } from './imgs/app-logo.svg';
 
 /* export */
-export { LogoAsset };
+export { AppLogoSrc, AppLogo };

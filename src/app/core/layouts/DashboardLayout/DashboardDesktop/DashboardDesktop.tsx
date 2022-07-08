@@ -5,18 +5,36 @@ import { Outlet } from 'react-router-dom';
 import { PanelLayout } from 'shared/layouts';
 /* components */
 import { Sidebar } from 'app/core/components';
-/* utils */
-import { bem } from 'shared/utils';
+/* assets */
+import { MdDashboard, MdQuestionAnswer } from 'react-icons/md';
 /* styles */
-import './DashboardDesktop.scss';
-
-/* base class name */
-const BASE_CLASS = 'app-dashboard-desktop';
+import styles from './DashboardDesktop.module.scss';
 
 const DashboardDesktop: FC = () => {
     return (
-        <PanelLayout className={BASE_CLASS} orientation="row">
-            <Sidebar className={bem(BASE_CLASS, '__sidebar')} />
+        <PanelLayout className={styles.Dashboard}>
+            <Sidebar
+                organization="OnLab-Clinical"
+                menu={[
+                    {
+                        label: 'Menu',
+                        items: [
+                            {
+                                icon: <MdDashboard />,
+                                label: 'Dashboard',
+                                type: 'plain',
+                                to: '',
+                            },
+                            {
+                                icon: <MdQuestionAnswer />,
+                                label: 'Messages',
+                                type: 'plain',
+                                to: 'messages',
+                            },
+                        ],
+                    },
+                ]}
+            />
 
             <PanelLayout orientation="col">
                 <Outlet />

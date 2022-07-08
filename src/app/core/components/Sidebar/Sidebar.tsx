@@ -3,28 +3,42 @@ import { FC, memo } from 'react';
 /* props */
 import { SidebarProps } from './Sidebar.props';
 /* layouts */
-import { ScrollLayout } from 'shared/layouts';
+import { PanelLayout, ScrollLayout } from 'shared/layouts';
+/* components */
+import MenuGroup from './MenuGroup';
 /* utils */
-import { bem, classNames } from 'shared/utils';
+import { classNames } from 'shared/utils';
 /* assets */
-import { LogoAsset } from 'assets';
+import { AppLogo } from 'assets';
 /* styles */
-import './Sidebar.scss';
+import styles from './Sidebar.module.scss';
 
-/* base class name */
-const BASE_CLASS = 'app-sidebar';
-
-const Sidebar: FC<SidebarProps> = ({ className, ...rest }) => {
+const Sidebar: FC<SidebarProps> = ({
+    className,
+    organization,
+    menu,
+    children,
+    ...rest
+}) => {
     return (
-        <div className={classNames(BASE_CLASS, className)} {...rest}>
-            <i className={bem(BASE_CLASS, '__logo')}>
-                <LogoAsset />
-            </i>
+        <PanelLayout
+            className={classNames(styles.Sidebar, className)}
+            orientation="col"
+            {...rest}>
+            <div className={styles.Logo} title={organization}>
+                <i>
+                    <AppLogo />
+                </i>
 
-            <hr className={bem(BASE_CLASS, '__divider')} />
+                <span>{organization}</span>
+            </div>
 
-            <ScrollLayout orientation="col">Actions</ScrollLayout>
-        </div>
+            <ScrollLayout classNameContent={styles.Menu} orientation="col">
+                {menu?.map((group, index) => (
+                    <MenuGroup key={index} {...group} />
+                ))}
+            </ScrollLayout>
+        </PanelLayout>
     );
 };
 

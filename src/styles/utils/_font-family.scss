@@ -5,5 +5,5 @@
         @error "No font family #{$font-family-key}";
     }
 
-    font-family: var(--sbsys-font-family-#{$font-family-key});
+    font-family: var(--#{$prefix}-font-family-#{$font-family-key});
 }

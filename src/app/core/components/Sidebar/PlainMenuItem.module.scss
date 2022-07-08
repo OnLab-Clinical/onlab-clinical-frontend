@@ -1,0 +1,36 @@
+@import 'styles';
+
+.Menu {
+    @include flex(row, center);
+    @include font-weight(lg);
+    @include gap(all lg);
+    @include interactable;
+    @include padding(y xs split, x xl);
+    text-decoration: none;
+
+    &:hover {
+        @include bg-color(700);
+        @include bg-opacity(20);
+    }
+
+    &Active {
+        @include border-width(left xl);
+        @include font-color(200, secondary);
+        @include padding(left lg);
+        @include shadow(top sm inset);
+        @include shadow-color(top 600 secondary);
+
+        &:hover {
+            @include shadow-opacity(top 0);
+        }
+    }
+
+    & > i {
+        @include font-size(xl, space);
+    }
+
+    & > span {
+        @include dots;
+        @include font-size(sm);
+    }
+}

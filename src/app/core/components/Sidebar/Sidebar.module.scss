@@ -1,0 +1,42 @@
+@import 'styles';
+
+.Sidebar {
+    @include bg-color(800, primary);
+    @include font-color(200);
+    @include gap(all md);
+
+    @include theme(dark) {
+        @include bg-color(900, primary);
+    }
+
+    & .Logo {
+        @include flex(row, center);
+        @include gap(all md);
+        @include margin(x lg, top xl, bottom md);
+
+        & > i {
+            @include height(sm, element);
+            @include min-height(sm, element);
+            @include min-width(sm, element);
+            @include rounded(
+                top-left lg,
+                top-right xs,
+                bottom-left xs,
+                bottom-right lg
+            );
+            @include width(sm, element);
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        & > span {
+            @include dots;
+            @include font-weight(xl);
+            letter-spacing: 0.1em;
+        }
+    }
+
+    & .Menu {
+        @include gap(all lg);
+    }
+}

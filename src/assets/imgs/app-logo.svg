@@ -1,10 +1,10 @@
-<svg viewBox="0 0 400 300" version="1.1"
+<svg viewBox="0 0 512 512" version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
     </defs>
 
     <g>
-        <rect x="0" y="0" width="400" height="300" fill="currentColor" />
+        <rect x="0" y="0" width="512" height="512" fill="currentColor" />
     </g>
 </svg>

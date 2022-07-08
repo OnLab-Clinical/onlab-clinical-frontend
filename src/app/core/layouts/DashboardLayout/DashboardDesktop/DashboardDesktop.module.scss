@@ -1,0 +1,6 @@
+@import 'styles';
+
+.Dashboard {
+    display: grid;
+    grid-template-columns: size(md, component) 1fr;
+}
