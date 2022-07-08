@@ -1,5 +1,7 @@
+@use 'sass:list';
+
 @mixin flex($orientation: col, $alignment: none, $justify: none) {
-    @if not map-has-value($orientation-keys, $orientation) {
+    @if not list.index($orientation-keys, $orientation) {
         @error "No orientation #{$orientation}";
     }
 

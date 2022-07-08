@@ -1,7 +1,7 @@
-@mixin inset($size-type-key: split, $size-key: none, $position: absolute) {
-    bottom: size($size-type-key, $size-key);
-    left: size($size-type-key, $size-key);
+@mixin inset($size-key: none, $size-type-key: split, $position: absolute) {
+    bottom: size($size-key, $size-type-key);
+    left: size($size-key, $size-type-key);
     position: $position;
-    right: size($size-type-key, $size-key);
-    top: size($size-type-key, $size-key);
+    right: size($size-key, $size-type-key);
+    top: size($size-key, $size-type-key);
 }

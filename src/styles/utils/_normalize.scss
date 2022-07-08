@@ -2,9 +2,9 @@
     &,
     &::before,
     &::after {
-        @include border-width(all split none);
-        @include margin(all split none);
-        @include padding(all split none);
+        @include border-width(all none);
+        @include margin(all none);
+        @include padding(all none);
         border-style: solid;
         box-sizing: border-box;
         color: inherit;

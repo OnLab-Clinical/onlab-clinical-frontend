@@ -1,9 +1,13 @@
 @use 'sass:list';
 
 @mixin rounded($positions...) {
-    @each $position-key, $size-type-key, $size-key in $positions {
+    @each $position-key, $size-key, $size-type-key in $positions {
         @if not list.index($extended-position-keys, $position-key) {
             @error "No position #{$position-key}";
+        }
+
+        @if not $size-type-key {
+            $size-type-key: rounded;
         }
 
         @if $position-key ==
@@ -15,7 +19,7 @@
             $position-key ==
             all
         {
-            border-top-left-radius: size($size-type-key, $size-key);
+            border-top-left-radius: size($size-key, $size-type-key);
         }
 
         @if $position-key ==
@@ -27,7 +31,7 @@
             $position-key ==
             all
         {
-            border-top-right-radius: size($size-type-key, $size-key);
+            border-top-right-radius: size($size-key, $size-type-key);
         }
 
         @if $position-key ==
@@ -39,7 +43,7 @@
             $position-key ==
             all
         {
-            border-bottom-left-radius: size($size-type-key, $size-key);
+            border-bottom-left-radius: size($size-key, $size-type-key);
         }
 
         @if $position-key ==
@@ -51,7 +55,7 @@
             $position-key ==
             all
         {
-            border-bottom-right-radius: size($size-type-key, $size-key);
+            border-bottom-right-radius: size($size-key, $size-type-key);
         }
     }
 }

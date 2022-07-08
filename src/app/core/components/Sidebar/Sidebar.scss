@@ -7,12 +7,12 @@
 
     &__logo {
         @include font-color(700, primary);
-        @include margin(all split md);
+        @include margin(all sm);
     }
 
     &__divider {
         @include border-color(top bg 300);
-        @include border-width(top border xs);
-        @include margin(x split md);
+        @include border-width(top xs);
+        @include margin(x sm);
     }
 }

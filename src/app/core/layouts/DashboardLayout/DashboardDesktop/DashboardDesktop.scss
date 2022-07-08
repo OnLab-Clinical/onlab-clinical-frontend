@@ -2,6 +2,6 @@
 
 .app-dashboard-desktop {
     &__sidebar {
-        flex-basis: size(component, sm);
+        flex-basis: size(sm, component);
     }
 }
