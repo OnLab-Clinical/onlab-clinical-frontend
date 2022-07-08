@@ -1,0 +1,21 @@
+@import 'styles';
+
+.Topbar {
+    @include flex(row, center);
+    @include padding(y xs, x md);
+
+    .Menu {
+        @include font-size(2xl);
+        @include interactable;
+        @include padding(all xs);
+        @include rounded(all xl);
+
+        &:hover {
+            @include bg-color(300);
+        }
+
+        &:active {
+            @include bg-color(400);
+        }
+    }
+}

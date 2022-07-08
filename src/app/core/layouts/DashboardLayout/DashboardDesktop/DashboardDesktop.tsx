@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 /* layouts */
 import { PanelLayout } from 'shared/layouts';
 /* components */
-import { Sidebar } from 'app/core/components';
+import { Sidebar, Topbar } from 'app/core/components';
 /* assets */
 import { MdDashboard, MdQuestionAnswer } from 'react-icons/md';
 /* styles */
@@ -37,6 +37,8 @@ const DashboardDesktop: FC = () => {
             />
 
             <PanelLayout orientation="col">
+                <Topbar />
+
                 <Outlet />
             </PanelLayout>
         </PanelLayout>
