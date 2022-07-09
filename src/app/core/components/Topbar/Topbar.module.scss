@@ -1,10 +1,11 @@
 @import 'styles';
 
 .Topbar {
-    @include flex(row, center);
+    @include flex(row, center, space-between);
     @include padding(y xs, x md);
 
     .Menu {
+        @include font-color(600);
         @include font-size(2xl);
         @include interactable;
         @include padding(all xs);
@@ -12,6 +13,7 @@
 
         &:hover {
             @include bg-color(300);
+            @include font-color(700);
         }
 
         &:active {

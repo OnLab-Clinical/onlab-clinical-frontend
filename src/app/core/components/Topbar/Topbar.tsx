@@ -4,6 +4,7 @@ import { FC, memo } from 'react';
 import { TopbarProps } from './Topbar.props';
 /* components */
 import { Button } from 'shared/components';
+import DropMenu from './DropMenu';
 /* utils */
 import { classNames } from 'shared/utils';
 /* assets */
@@ -19,6 +20,8 @@ const Topbar: FC<TopbarProps> = ({ className, ...rest }) => {
                     <MdMenu />
                 </i>
             </Button>
+
+            <DropMenu />
         </div>
     );
 };

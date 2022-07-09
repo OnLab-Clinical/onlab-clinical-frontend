@@ -1,0 +1,27 @@
+@import 'styles';
+
+.Drop {
+    @include flex;
+    position: relative;
+
+    .Content {
+        @include flex;
+        position: absolute;
+
+        &.Top {
+            top: 0;
+        }
+
+        &.Bottom {
+            bottom: 0;
+        }
+
+        &.Left {
+            left: 0;
+        }
+
+        &.Right {
+            right: 0;
+        }
+    }
+}
