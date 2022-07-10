@@ -3,7 +3,7 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 /* props */
 import { ChildrenProps } from 'shared/props';
 /* types */
-import { Alignment, Position } from 'shared/types';
+import { Alignment } from 'shared/types';
 
 export interface DropLayoutProps
     extends Omit<
@@ -11,9 +11,15 @@ export interface DropLayoutProps
             'children'
         >,
         ChildrenProps {
-    dropContent?: ReactNode | ReactNode[] | (() => ReactNode);
-    openTo?: Position;
+    classNameDrop?: string;
+    drop?: ReactNode | ReactNode[] | (() => ReactNode);
 
-    anchorEdge?: Position;
-    anchorAlignment?: Alignment;
+    dropCol?: Alignment;
+    dropRow?: Alignment;
+
+    anchorCol?: Alignment;
+    anchorRow?: Alignment;
+
+    isDrop?: boolean;
+    isHoverable?: boolean;
 }

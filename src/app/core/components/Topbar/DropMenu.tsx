@@ -10,7 +10,12 @@ const DropMenu: FC = () => {
     return (
         <DropLayout
             className={styles.Menu}
-            dropContent={<div className={styles.Content}>content</div>}>
+            anchorRow="end"
+            anchorCol="start"
+            dropRow="end"
+            dropCol="start"
+            isHoverable
+            drop={<div className={styles.Content}>content</div>}>
             <Button className={styles.Children}>CLICK!</Button>
         </DropLayout>
     );
