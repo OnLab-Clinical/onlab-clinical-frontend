@@ -1,0 +1,35 @@
+@import 'styles';
+
+.Appbar {
+    @include bg-color(800, primary);
+    @include flex(row, center, space-between);
+    @include font-color(200);
+    @include gap(all md);
+    @include padding(y xs, x md);
+
+    .Back,
+    .Menu {
+        @include bg-color(600);
+        @include bg-opacity(0);
+        @include font-size(2xl);
+        @include interactable;
+        @include padding(all sm split);
+        @include rounded(all md);
+
+        &:hover {
+            @include bg-opacity(20);
+        }
+
+        &:active {
+            @include bg-opacity(30);
+        }
+    }
+
+    .Logo {
+        @include dots;
+        @include font-size(lg);
+        @include font-weight(xl);
+        @include max-width(sm, component);
+        letter-spacing: 0.1em;
+    }
+}

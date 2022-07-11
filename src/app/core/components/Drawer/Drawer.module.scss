@@ -1,0 +1,34 @@
+@import 'styles';
+
+.Drawer {
+    @include bg-color(800, primary);
+    @include font-color(200);
+    @include width(none, component);
+    transition: width 0.25s ease-out;
+
+    &.Active {
+        @include shadow(right xs);
+        @include shadow-color(right 600 secondary);
+        width: min(80%, size(md, component));
+    }
+
+    .User {
+        @include flex(col, start);
+        @include gap(all xs);
+        @include margin(top sm, x sm);
+
+        & > img {
+            @include rounded(all sm element);
+            object-fit: cover;
+            overflow: hidden;
+            @include width(md, element);
+            @include height(md, element);
+        }
+
+        & > span {
+            @include dots;
+            @include font-weight(xl);
+            letter-spacing: 0.1em;
+        }
+    }
+}

@@ -1,8 +1,12 @@
 @import 'styles';
 
 .Dashboard {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: none;
+
+    @include screen-width(xl) {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
 
     .Sidebar {
         @include width(lg, element);

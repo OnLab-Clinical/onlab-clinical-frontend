@@ -5,6 +5,7 @@ import { Context } from './DashboardLayout.context';
 /* custom hook */
 import { useDashboardLayout } from './useDashboardLayout.hook';
 /* components */
+import { DashboardMobile } from './DashboardMobile';
 import { DashboardDesktop } from './DashboardDesktop';
 
 const DashboardLayout: FC = () => {
@@ -12,6 +13,8 @@ const DashboardLayout: FC = () => {
 
     return (
         <Context.Provider value={context}>
+            <DashboardMobile />
+
             <DashboardDesktop />
         </Context.Provider>
     );

@@ -12,20 +12,6 @@
 
     &.Row {
         &Start {
-            justify-items: start;
-        }
-
-        &Center {
-            justify-items: center;
-        }
-
-        &End {
-            justify-items: end;
-        }
-    }
-
-    &.Col {
-        &Start {
             align-items: start;
         }
 
@@ -35,6 +21,20 @@
 
         &End {
             align-items: end;
+        }
+    }
+
+    &.Col {
+        &Start {
+            justify-items: start;
+        }
+
+        &Center {
+            justify-items: center;
+        }
+
+        &End {
+            justify-items: end;
         }
     }
 }
