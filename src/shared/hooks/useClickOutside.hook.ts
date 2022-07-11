@@ -9,7 +9,7 @@ export const useClickOutside = (
     useEffect(() => {
         if (!ref.current || typeof handleClickOutside !== 'function') return;
 
-        const handleClick = (event: MouseEvent) =>
+        const handleClick: (event: MouseEvent) => void = (event: MouseEvent) =>
             !ref.current?.contains(event.target as Node) &&
             handleClickOutside();
 
