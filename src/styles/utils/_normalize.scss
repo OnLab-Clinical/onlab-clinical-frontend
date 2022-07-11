@@ -4,6 +4,7 @@
     &::after {
         @include border-width(all none);
         @include padding(all none);
+        background-color: transparent;
         border-style: solid;
         color: inherit;
         font-size: inherit;

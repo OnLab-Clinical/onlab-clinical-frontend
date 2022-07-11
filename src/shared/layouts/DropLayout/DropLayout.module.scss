@@ -6,7 +6,6 @@
 
     .Content {
         @include flex;
-        overflow: hidden;
         position: absolute;
         transform: translate(
             var(--#{$prefix}-translate-x),

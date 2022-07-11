@@ -1,23 +1,27 @@
+/* react */
 import { FC, memo } from 'react';
+/* props */
+import { DropMenuProps } from './Topbar.props';
 /* layouts */
-import { DropLayout } from 'shared/layouts';
+import { PanelLayout } from 'shared/layouts';
 /* components */
 import { Button } from 'shared/components';
+/* assets */
+import { MdClose } from 'react-icons/md';
 /* styles */
 import styles from './DropMenu.module.scss';
 
-const DropMenu: FC = () => {
+const DropMenu: FC<DropMenuProps> = ({ onCloseDropMenu }) => {
     return (
-        <DropLayout
-            className={styles.Menu}
-            anchorRow="end"
-            anchorCol="start"
-            dropRow="end"
-            dropCol="start"
-            isHoverable
-            drop={<div className={styles.Content}>content</div>}>
-            <Button className={styles.Children}>CLICK!</Button>
-        </DropLayout>
+        <PanelLayout className={styles.Menu} orientation="col">
+            <Button onClick={onCloseDropMenu} className={styles.Close}>
+                <i>
+                    <MdClose />
+                </i>
+            </Button>
+
+            <hr className={styles.Divider} />
+        </PanelLayout>
     );
 };
 

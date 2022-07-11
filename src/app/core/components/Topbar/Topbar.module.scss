@@ -20,4 +20,19 @@
             @include bg-color(400);
         }
     }
+
+    .Drop {
+        @include height(sm, element);
+        @include interactable(0.125s, 1, 0.98);
+        @include rounded(all xl);
+        @include width(sm, element);
+        overflow: hidden;
+
+        & > img {
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            width: 100%;
+        }
+    }
 }

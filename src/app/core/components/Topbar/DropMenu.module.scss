@@ -1,14 +1,30 @@
 @import 'styles';
 
 .Menu {
-    .Children {
-        background-color: transparent;
+    @include bg-color(300);
+    @include height(2xl, component);
+    @include padding(all xs);
+    @include rounded(all xs);
+    @include shadow(bottom sm);
+    @include width(sm, component);
+
+    .Close {
+        @include font-color(500);
+        @include font-size(2xl);
+        @include interactable;
+        @include padding(all xs);
+        @include rounded(all xl);
+        align-self: flex-end;
+
+        &:hover {
+            @include bg-color(400);
+            @include font-color(600);
+        }
     }
 
-    .Content {
-        background-color: black;
-        color: white;
-        height: 8rem;
-        width: 8rem;
+    .Divider {
+        @include border-color(top 400 font);
+        @include border-width(top xs);
+        width: 100%;
     }
 }
