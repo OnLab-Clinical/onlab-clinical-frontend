@@ -1,5 +1,5 @@
 /* react */
-import { FC, memo } from 'react';
+import { forwardRef, memo } from 'react';
 /* props */
 import { ScrollLayoutProps } from './ScrollLayout.props';
 /* layouts */
@@ -16,24 +16,21 @@ const orientationStrategy: Record<Orientation, string> = {
     row: styles.Row,
 };
 
-const ScrollLayout: FC<ScrollLayoutProps> = ({
-    classNameContent,
-    orientation,
-    children,
-    ...rest
-}) => {
-    return (
-        <PanelLayout orientation={orientation} {...rest}>
-            <div
-                className={classNames(
-                    styles.ScrollLayout,
-                    orientation && orientationStrategy[orientation],
-                    classNameContent
-                )}>
-                {typeof children === 'function' ? children() : children}
-            </div>
-        </PanelLayout>
-    );
-};
+const ScrollLayout = forwardRef<HTMLDivElement | null, ScrollLayoutProps>(
+    ({ classNameContent, orientation, children, ...rest }, ref) => {
+        return (
+            <PanelLayout orientation={orientation} ref={ref} {...rest}>
+                <div
+                    className={classNames(
+                        styles.ScrollLayout,
+                        orientation && orientationStrategy[orientation],
+                        classNameContent
+                    )}>
+                    {typeof children === 'function' ? children() : children}
+                </div>
+            </PanelLayout>
+        );
+    }
+);
 
 export default memo(ScrollLayout);

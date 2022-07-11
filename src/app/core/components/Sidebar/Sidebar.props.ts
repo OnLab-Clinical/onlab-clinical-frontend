@@ -8,15 +8,21 @@ import { DropdownMenuItem, MenuGroup, PlainMenuItem } from 'app/types';
 export interface SidebarProps
     extends Omit<
             DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-            'children'
+            'children' | 'ref'
         >,
         ChildrenProps {
-    organization: string;
+    organization?: string;
     menu?: MenuGroup[];
+
+    isFull?: boolean;
 }
 
-export interface MenuGroupProps extends MenuGroup {}
+export interface MenuGroupProps extends MenuGroup {
+    isFull?: boolean;
+}
 
 export interface DropdownMenuItemProps extends DropdownMenuItem {}
 
-export interface PlainMenuItemProps extends PlainMenuItem {}
+export interface PlainMenuItemProps extends PlainMenuItem {
+    isFull?: boolean;
+}

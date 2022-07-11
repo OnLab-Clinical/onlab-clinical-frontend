@@ -1,15 +1,19 @@
 /* react */
 import { FC, memo } from 'react';
-/* layouts */
-import { PanelLayout } from 'shared/layouts';
+/* context */
+import { Context } from './DashboardLayout.context';
+/* custom hook */
+import { useDashboardLayout } from './useDashboardLayout.hook';
 /* components */
 import { DashboardDesktop } from './DashboardDesktop';
 
 const DashboardLayout: FC = () => {
+    const { context } = useDashboardLayout();
+
     return (
-        <PanelLayout orientation="col">
+        <Context.Provider value={context}>
             <DashboardDesktop />
-        </PanelLayout>
+        </Context.Provider>
     );
 };
 

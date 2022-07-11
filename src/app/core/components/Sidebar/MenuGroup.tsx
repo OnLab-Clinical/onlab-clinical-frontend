@@ -20,10 +20,10 @@ const MenuItemStrategy = ComponentStrategy<PlainMenuItemProps, MenuType>({
     Default: PlainMenuItem,
 });
 
-const MenuGroup: FC<MenuGroupProps> = ({ label, items, ...rest }) => {
+const MenuGroup: FC<MenuGroupProps> = ({ label, items, isFull, ...rest }) => {
     return (
         <div className={styles.Group} {...rest}>
-            <span className={label}>{label}</span>
+            {isFull && <span title={label}>{label}</span>}
 
             <nav>
                 {items.map((item, index) => (
@@ -31,6 +31,7 @@ const MenuGroup: FC<MenuGroupProps> = ({ label, items, ...rest }) => {
                         key={index}
                         strategy={item.type}
                         to=""
+                        isFull={isFull}
                         {...item}
                     />
                 ))}

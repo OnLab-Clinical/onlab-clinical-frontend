@@ -8,7 +8,7 @@ import { Orientation } from 'shared/types';
 export interface PanelLayoutProps
     extends Omit<
             DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-            'children'
+            'children' | 'ref'
         >,
         ChildrenProps {
     orientation?: Orientation;

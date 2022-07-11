@@ -2,7 +2,7 @@
 
 .Menu {
     @include bg-color(300);
-    @include height(2xl, component);
+    @include height(md, component);
     @include padding(all xs);
     @include rounded(all xs);
     @include shadow(bottom sm);
@@ -10,9 +10,9 @@
 
     .Close {
         @include font-color(500);
-        @include font-size(2xl);
+        @include font-size(xl);
         @include interactable;
-        @include padding(all xs);
+        @include padding(all xs split);
         @include rounded(all xl);
         align-self: flex-end;
 
@@ -20,11 +20,5 @@
             @include bg-color(400);
             @include font-color(600);
         }
-    }
-
-    .Divider {
-        @include border-color(top 400 font);
-        @include border-width(top xs);
-        width: 100%;
     }
 }

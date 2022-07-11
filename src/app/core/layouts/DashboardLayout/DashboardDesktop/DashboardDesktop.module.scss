@@ -2,5 +2,18 @@
 
 .Dashboard {
     display: grid;
-    grid-template-columns: size(md, component) 1fr;
+    grid-template-columns: auto 1fr;
+
+    .Sidebar {
+        @include width(lg, element);
+        transition: width 0.25s ease-out;
+
+        &Full {
+            @include width(md, component);
+        }
+    }
+
+    .Content {
+        @include margin(x md, y xs);
+    }
 }

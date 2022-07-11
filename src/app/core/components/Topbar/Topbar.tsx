@@ -17,12 +17,12 @@ import { AppLogoSrc } from 'assets';
 /* styles */
 import styles from './Topbar.module.scss';
 
-const Topbar: FC<TopbarProps> = ({ className, ...rest }) => {
+const Topbar: FC<TopbarProps> = ({ className, onClickMenu, ...rest }) => {
     const [isDrop, openDrop, closeDrop] = useActive();
 
     return (
         <div className={classNames(styles.Topbar, className)} {...rest}>
-            <Button className={styles.Menu}>
+            <Button className={styles.Menu} onClick={onClickMenu}>
                 <i>
                     <MdMenu />
                 </i>

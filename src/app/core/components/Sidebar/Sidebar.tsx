@@ -17,6 +17,7 @@ const Sidebar: FC<SidebarProps> = ({
     className,
     organization,
     menu,
+    isFull,
     children,
     ...rest
 }) => {
@@ -25,17 +26,19 @@ const Sidebar: FC<SidebarProps> = ({
             className={classNames(styles.Sidebar, className)}
             orientation="col"
             {...rest}>
-            <div className={styles.Logo} title={organization}>
+            <div
+                className={classNames(styles.Logo, isFull && styles.LogoFull)}
+                title={organization}>
                 <i>
                     <AppLogo />
                 </i>
 
-                <span>{organization}</span>
+                {isFull && <span>{organization}</span>}
             </div>
 
             <ScrollLayout classNameContent={styles.Menu} orientation="col">
                 {menu?.map((group, index) => (
-                    <MenuGroup key={index} {...group} />
+                    <MenuGroup key={index} isFull={isFull} {...group} />
                 ))}
             </ScrollLayout>
         </PanelLayout>

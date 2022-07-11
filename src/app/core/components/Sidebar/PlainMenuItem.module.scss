@@ -5,7 +5,7 @@
     @include font-weight(lg);
     @include gap(all lg);
     @include interactable;
-    @include padding(y xs split, x xl);
+    @include padding(y xs split, x md);
     text-decoration: none;
 
     &:hover {
@@ -13,10 +13,10 @@
         @include bg-opacity(20);
     }
 
-    &Active {
+    &.Active {
         @include border-width(left xl);
         @include font-color(200, secondary);
-        @include padding(left lg);
+        @include padding(left sm);
         @include shadow(top sm inset);
         @include shadow-color(top 600 secondary);
 
@@ -32,5 +32,13 @@
     & > span {
         @include dots;
         @include font-size(sm);
+    }
+
+    &.Full {
+        @include padding(y xs split, x xl);
+
+        &.Active {
+            @include padding(left lg);
+        }
     }
 }

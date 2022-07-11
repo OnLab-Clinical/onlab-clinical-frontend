@@ -5,6 +5,7 @@
     @include gap(all md);
 
     & > span {
+        @include dots;
         @include font-weight(lg);
         @include padding(x xl);
     }
@@ -12,5 +13,9 @@
     & > nav {
         @include flex;
         @include gap(all sm);
+    }
+
+    .NoLabel {
+        @include height(xl, font);
     }
 }

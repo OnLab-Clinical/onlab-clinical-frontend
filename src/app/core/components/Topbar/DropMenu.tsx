@@ -2,6 +2,8 @@
 import { FC, memo } from 'react';
 /* props */
 import { DropMenuProps } from './Topbar.props';
+/* hooks */
+import { useClickOutside, useKeyDownEvent } from 'shared/hooks';
 /* layouts */
 import { PanelLayout } from 'shared/layouts';
 /* components */
@@ -12,15 +14,17 @@ import { MdClose } from 'react-icons/md';
 import styles from './DropMenu.module.scss';
 
 const DropMenu: FC<DropMenuProps> = ({ onCloseDropMenu }) => {
+    const [ref] = useClickOutside(onCloseDropMenu);
+
+    useKeyDownEvent(event => event.key === 'Escape' && onCloseDropMenu());
+
     return (
-        <PanelLayout className={styles.Menu} orientation="col">
+        <PanelLayout className={styles.Menu} orientation="col" ref={ref}>
             <Button onClick={onCloseDropMenu} className={styles.Close}>
                 <i>
                     <MdClose />
                 </i>
             </Button>
-
-            <hr className={styles.Divider} />
         </PanelLayout>
     );
 };

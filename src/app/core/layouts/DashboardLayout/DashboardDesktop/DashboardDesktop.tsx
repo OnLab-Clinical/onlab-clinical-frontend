@@ -1,45 +1,40 @@
 /* react */
-import { FC, memo } from 'react';
+import { FC, memo, useContext } from 'react';
 import { Outlet } from 'react-router-dom';
+/* context */
+import { Context } from '../DashboardLayout.context';
 /* layouts */
 import { PanelLayout } from 'shared/layouts';
 /* components */
 import { Sidebar, Topbar } from 'app/core/components';
-/* assets */
-import { MdDashboard, MdQuestionAnswer } from 'react-icons/md';
+/* utils */
+import { classNames } from 'shared/utils';
 /* styles */
 import styles from './DashboardDesktop.module.scss';
 
 const DashboardDesktop: FC = () => {
+    const {
+        /* props */
+        sidebarProps,
+        topbarProps,
+    } = useContext(Context);
+
     return (
         <PanelLayout className={styles.Dashboard}>
             <Sidebar
-                organization="OnLab-Clinical"
-                menu={[
-                    {
-                        label: 'Menu',
-                        items: [
-                            {
-                                icon: <MdDashboard />,
-                                label: 'Dashboard',
-                                type: 'plain',
-                                to: '',
-                            },
-                            {
-                                icon: <MdQuestionAnswer />,
-                                label: 'Messages',
-                                type: 'plain',
-                                to: 'messages',
-                            },
-                        ],
-                    },
-                ]}
+                className={classNames(
+                    styles.Sidebar,
+                    sidebarProps.isFull && styles.SidebarFull
+                )}
+                {...sidebarProps}
             />
 
             <PanelLayout orientation="col">
-                <Topbar />
+                <Topbar {...topbarProps} />
 
-                <Outlet />
+                <PanelLayout className={styles.Content} orientation="col">
+                    <Outlet />
+                </PanelLayout>
             </PanelLayout>
         </PanelLayout>
     );

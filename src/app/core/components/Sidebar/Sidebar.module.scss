@@ -12,7 +12,7 @@
     & .Logo {
         @include flex(row, center);
         @include gap(all md);
-        @include margin(x lg, top xl, bottom md);
+        @include margin(x sm, top xl, bottom md);
 
         & > i {
             @include height(sm, element);
@@ -33,6 +33,10 @@
             @include dots;
             @include font-weight(xl);
             letter-spacing: 0.1em;
+        }
+
+        &Full {
+            @include margin(x lg);
         }
     }
 
