@@ -16,6 +16,7 @@
         @include flex(col, start);
         @include gap(all xs);
         @include margin(top sm, x sm);
+        overflow: hidden;
 
         & > img {
             @include rounded(all sm element);
@@ -26,7 +27,6 @@
         }
 
         & > span {
-            @include dots;
             @include font-weight(xl);
             letter-spacing: 0.1em;
         }

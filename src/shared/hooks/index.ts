@@ -4,3 +4,4 @@ export * from './useLocalStorage.hook';
 export * from './useDragAndDropFiles.hook';
 export * from './useClickOutside.hook';
 export * from './useKeyDownEvent.hook';
+export * from './useMinWidth.hook';
