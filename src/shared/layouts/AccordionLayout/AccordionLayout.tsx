@@ -12,8 +12,8 @@ const AccordionLayout = forwardRef<HTMLDivElement | null, AccordionLayoutProps>(
         return (
             <div
                 className={classNames(styles.AccordionLayout, className)}
+                ref={ref}
                 {...rest}>
-                AccordionLayout
                 {typeof children === 'function' ? children() : children}
             </div>
         );

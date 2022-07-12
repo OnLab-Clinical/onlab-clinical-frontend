@@ -26,7 +26,7 @@
             @include height(md, element);
         }
 
-        & > span {
+        .UserName {
             @include font-weight(xl);
             letter-spacing: 0.1em;
         }

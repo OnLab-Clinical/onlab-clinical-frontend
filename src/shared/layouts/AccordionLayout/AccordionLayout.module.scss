@@ -1,4 +1,7 @@
 @import 'styles';
 
 .AccordionLayout {
+    display: flex;
+    flex-direction: column;
+    @include hidden;
 }

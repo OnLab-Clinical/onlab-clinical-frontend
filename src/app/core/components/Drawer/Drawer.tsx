@@ -5,14 +5,15 @@ import { DrawerProps } from './Drawer.props';
 /* hooks */
 import { useMinWidth } from 'shared/hooks';
 /* layouts */
-import { ModalLayout } from 'shared/layouts';
+import { AccordionLayout, ModalLayout } from 'shared/layouts';
+/* components */
+import { Legend } from 'shared/components';
 /* utils */
 import { classNames, matchBreakPoint } from 'shared/utils';
 /* assets */
 import { AppLogoSrc } from 'assets';
 /* styles */
 import styles from './Drawer.module.scss';
-import { Legend } from 'shared/components';
 
 const Drawer: FC<DrawerProps> = () => {
     const [breakPoint] = useMinWidth();
@@ -25,7 +26,11 @@ const Drawer: FC<DrawerProps> = () => {
             <div className={styles.User} title={'Steven Bustillo'}>
                 <img src={AppLogoSrc} alt="user" />
 
-                <Legend hasDots>Steven Bustillo</Legend>
+                <AccordionLayout>
+                    <Legend hasDots className={styles.UserName}>
+                        Steven Bustillo
+                    </Legend>
+                </AccordionLayout>
             </div>
         </ModalLayout>
     );
