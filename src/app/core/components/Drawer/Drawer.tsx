@@ -16,20 +16,21 @@ import { AppLogoSrc } from 'assets';
 /* styles */
 import styles from './Drawer.module.scss';
 
-const Drawer: FC<DrawerProps> = () => {
+const Drawer: FC<DrawerProps> = ({ userName, isDrawer, onClickOverlay }) => {
     const [breakPoint] = useMinWidth();
 
     return (
         <ModalLayout
             className={classNames(styles.Drawer, styles.Active)}
-            isVisible={matchBreakPoint('xl', breakPoint).under}
+            isVisible={matchBreakPoint('xl', breakPoint).under && isDrawer}
+            onClickOverlay={onClickOverlay}
             colAlignment="start">
-            <div className={styles.User} title={'Steven Bustillo'}>
+            <div className={styles.User} title={userName}>
                 <img src={AppLogoSrc} alt="user" />
 
-                <AccordionLayout isHoverable openTo='bottom' accordion={<Accordion />}>
+                <AccordionLayout isHoverable accordion={<Accordion />}>
                     <Legend hasDots className={styles.UserName}>
-                        Steven Bustillo
+                        {userName}
                     </Legend>
                 </AccordionLayout>
             </div>

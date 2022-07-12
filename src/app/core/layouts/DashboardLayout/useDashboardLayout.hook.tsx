@@ -1,5 +1,10 @@
 /* props */
-import { SidebarProps, TopbarProps } from 'app/core/components';
+import {
+    AppbarProps,
+    DrawerProps,
+    SidebarProps,
+    TopbarProps,
+} from 'app/core/components';
 import { DashboardLayoutContext } from './DashboardLayout.props';
 /* hooks */
 import { useActive } from 'shared/hooks';
@@ -41,12 +46,26 @@ export const useDashboardLayout = () => {
         onClickMenu: toggleSidebar,
     };
 
+    const appbarProps: AppbarProps = {
+        isBackVisible: true,
+        onBackClick: () => alert('BACK!'),
+        onMenuClick: toggleSidebar,
+    };
+
+    const drawerProps: DrawerProps = {
+        userName: 'Steven Bustillo',
+        isDrawer: isSidebar,
+        onClickOverlay: toggleSidebar,
+    };
+
     /* context */
 
     const context: DashboardLayoutContext = {
         /* props */
         sidebarProps,
         topbarProps,
+        appbarProps,
+        drawerProps,
     };
 
     return { context };

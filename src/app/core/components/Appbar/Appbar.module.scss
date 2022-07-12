@@ -25,6 +25,11 @@
         }
     }
 
+    .BackHide {
+        @include disabled;
+        @include opacity(0);
+    }
+
     .Logo {
         @include dots;
         @include font-size(lg);
