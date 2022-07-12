@@ -8,6 +8,7 @@ import { useMinWidth } from 'shared/hooks';
 import { AccordionLayout, ModalLayout } from 'shared/layouts';
 /* components */
 import { Legend } from 'shared/components';
+import Accordion from './Accordion';
 /* utils */
 import { classNames, matchBreakPoint } from 'shared/utils';
 /* assets */
@@ -26,7 +27,7 @@ const Drawer: FC<DrawerProps> = () => {
             <div className={styles.User} title={'Steven Bustillo'}>
                 <img src={AppLogoSrc} alt="user" />
 
-                <AccordionLayout>
+                <AccordionLayout isHoverable openTo='bottom' accordion={<Accordion />}>
                     <Legend hasDots className={styles.UserName}>
                         Steven Bustillo
                     </Legend>
