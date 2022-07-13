@@ -16,6 +16,10 @@ export const useMinWidth = (): [
     const [breakPoint, setBreakPoint] = useState<BreakPoint | ''>('');
 
     useEffect(() => {
+        mediaRef.current = breakPoint;
+    }, [breakPoint]);
+
+    useEffect(() => {
         const hasNoRef = !ref.current;
 
         const mediaQueries: MediaQueryList[] = [];
@@ -27,8 +31,6 @@ export const useMinWidth = (): [
             (event: MediaQueryList | MediaQueryListEvent) => {
                 if (event.matches) {
                     setBreakPoint(bp);
-
-                    mediaRef.current = bp;
 
                     return;
                 }
@@ -43,16 +45,12 @@ export const useMinWidth = (): [
                 );
 
                 if (
-                    matchMediaIndex === currentIndex &&
+                    matchMediaIndex <= currentIndex &&
                     matchMediaIndex - 1 > -1
                 ) {
                     setBreakPoint(
                         BreakPointKeys[matchMediaIndex - 1] as BreakPoint
                     );
-
-                    mediaRef.current = BreakPointKeys[
-                        matchMediaIndex - 1
-                    ] as BreakPoint;
                 }
             };
 
